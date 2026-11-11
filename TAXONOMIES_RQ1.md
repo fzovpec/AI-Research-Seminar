@@ -2,13 +2,13 @@
 ## How do existing benchmarks quantify hallucinations in LLM memory systems, and what specific memory failure modes do they evaluate?
 
 **Date:** 2026-11-11  
-**Scope:** 30 included RQ1 benchmarks, organized into 6 thematic categories
+**Scope:** 23 included RQ1 benchmarks, organized into 4 thematic categories
 
 ---
 
 ## Overview
 
-Across the included benchmarks, six distinct memory failure modes emerge. Each category reflects a structurally different way memory can break down in LLMs — from forgetting a training fact, to misreading a retrieved document, to losing track of a conversation 300 turns ago.
+Across the included benchmarks, four distinct memory failure modes emerge. Each category reflects a structurally different way memory can break down in LLMs — from forgetting a training fact, to misreading a retrieved document, to losing track of a conversation 300 turns ago.
 
 ---
 
@@ -45,6 +45,7 @@ This category addresses temporal degradation — the model encounters informatio
 | **ES-MemEval** | Five memory capabilities in long-term emotional support contexts | Memory fragmentation and disclosure-tracking failures |
 | **Locomo-Plus** | Cognitive memory beyond factual accuracy — constraint-consistency, timeline coherence | Surfaces qualitative failures standard QA accuracy misses |
 | **MemoryBench** | Continual learning + long-term memory across 8K–128K token contexts | Memory–context-length scaling behavior |
+| **Towards Root Memory** | Divergence between semantic and logical relevance in personalized LLM memory retrieval (IMLogic) | Retrieval succeeds by similarity but fails by logic — a failure mode invisible to embedding-based metrics |
 
 **Shared metric pattern:** cross-session accuracy, memory consistency scores, recall@k across conversation windows.
 
@@ -92,7 +93,7 @@ This category focuses on *agentic* memory — systems where the LLM is actively 
 
 **1. Measurement granularity varies sharply across categories.** Parametric recall benchmarks measure aggregate accuracy. Agent operation benchmarks isolate failure to specific operations (extraction vs. update vs. retrieval). The field lacks a unified failure taxonomy applied consistently.
 
-**2. Temporal memory is the most-studied failure mode (8 of 28 benchmarks).** Long-term episodic memory degrades in ways that standard context-window benchmarks miss. The 30%+ accuracy drop documented in LongMemEval is the most cited quantitative anchor.
+**2. Temporal memory is the most-studied failure mode (9 of 23 benchmarks).** Long-term episodic memory degrades in ways that standard context-window benchmarks miss. The 30%+ accuracy drop documented in LongMemEval is the most cited quantitative anchor.
 
 **3. External memory integration splits into two related sub-failures.** Conflict benchmarks (ConflictBank, RECALL, Adaptive Chameleon) measure *arbitration* — the model has two valid sources that disagree. Faithfulness benchmarks (RAGTruth) measure *grounding compliance* — the model ignores context it isn't even conflicting with. Both stem from the same underlying weakness: the model's internal generative tendencies overriding retrieved content.
 
@@ -104,10 +105,11 @@ This category focuses on *agentic* memory — systems where the LLM is actively 
 
 | Category | # Benchmarks | Core Failure Mode | Representative Benchmark |
 |----------|-------------|-------------------|--------------------------|
-| **1. Parametric Memory Recall** | 4 | Model fails to surface knowledge from training weights | HalluLens |
-| **2. Long-Term Episodic Memory** | 8 | Memory degrades across sessions or extended contexts | LongMemEval, LoCoMo |
+| **1. Parametric Memory Recall** | 4 | Model fails to surface knowledge from training weights | HalluLens, PRISM |
+| **2. Long-Term Episodic Memory** | 9 | Memory degrades across sessions or extended contexts | LongMemEval, LoCoMo, Towards Root Memory |
 | **3. External Memory Integration** | 4 | Conflict arbitration or unfaithfulness to retrieved content | ConflictBank, RAGTruth |
-| **4. Agent Memory Operations** | 4 | Hallucinations introduced during CRUD-like memory management | HaluMem |
+| **4. Agent Memory Operations** | 4 | Hallucinations introduced during CRUD-like memory management | HaluMem, MCPHallu |
 | **Surveys / Taxonomies** | 2 | *(meta — define the memory type space)* | Memory in LLMs Survey, MemoryBank |
+| **Total** | **23** | | |
 
 > *Note: MemoryBank and Memory in LLMs Survey are included as foundational taxonomy papers that frame the conceptual space. MemoryRewardBench and TWIST target memory management quality rather than a specific hallucination type, so they anchor Category 4 at the evaluation-of-evaluation level.*

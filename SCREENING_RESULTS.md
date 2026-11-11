@@ -61,7 +61,7 @@
 
 **28. Med-HALT: Medical Domain Hallucination Test for Large Language Models --> Included --> CoNLL 2023; abstract explicitly includes "memory-based hallucination tests" alongside reasoning tests; domain-specific but memory evaluation is a primary stated dimension; quantitative benchmark.**
 
-**34. SuperMemory-VQA: An Egocentric Visual Question-Answering Benchmark for Long-Horizon Memory --> Included --> arXiv 2026; explicitly benchmarks long-horizon memory in egocentric video; 4,853 QA pairs; assesses memory hallucination robustness with unanswerable option.**
+**34. SuperMemory-VQA: An Egocentric Visual Question-Answering Benchmark for Long-Horizon Memory --> Excluded --> Non-textual modality (egocentric video); review scope restricted to text-based LLM memory systems.**
 
 **37. Memory in Large Language Models: Mechanisms, Evaluation and Evolution --> Included --> arXiv 2025; comprehensive survey with explicit memory taxonomy (parametric, contextual, external, procedural) plus an evaluation framework; qualifies as memory-system survey with systematic analysis.**
 
