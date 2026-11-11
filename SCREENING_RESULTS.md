@@ -1,349 +1,343 @@
 # Paper Screening & Selection Results
-## LLM Memory & Hallucination Literature Review
+## LLM Memory & Hallucination — Revised & Validated
 
-**Evaluation Date:** 2026-11-11  
-**Total Papers Screened:** 128  
-**Evaluation Method:** 16 parallel agents  
-**Inclusion Criteria:** 2023-2026 publication + memory-explicit focus + open/transparent + quantitative evaluation
+**Evaluation Date:** 2026-11-11 (revised)
+**Total Entries Screened:** 128 (includes 3 confirmed duplicates)
+**Unique Papers Evaluated:** 125
+**Evaluator:** Claude Sonnet 4.6 — full re-read of all abstracts, criteria applied consistently
 
 ---
 
-## INCLUDED PAPERS (Passed all criteria)
-
-### RQ1: Benchmarks and Datasets for LLM Memory Hallucinations
-
-5. HalluLens: LLM Hallucination Benchmark --> Included --> ACL 2025; explicitly distinguishes extrinsic hallucinations (contradicting parametric memory) from intrinsic (contradicting context); open-source via GitHub/HuggingFace; quantitative evaluation framework.
-
-8. TruthfulQA: Measuring How Models Mimic Human Falsehoods --> Included --> Borderline on date (2022) but foundational benchmark for parametric memory hallucinations; open-source code/models available; 817 questions with quantitative metrics across 38 domains.
-
-10. What Matters in Memorizing and Recalling Facts? --> Included --> Memory-explicit focus on knowledge probing with quantitative evaluation; EMNLP 2024; BELIEF framework with MyriadLAMA dataset.
-
-11. LongMemEval: Benchmarking Chat Assistants on Long-Term Interactive Memory --> Included --> Explicitly addresses long-term memory evaluation with quantitative benchmarking; ICLR 2025; 500 questions evaluating five core long-term memory abilities.
-
-12. Evaluating Very Long-Term Conversational Memory of LLM Agents (LoCoMo) --> Included --> Memory-explicit (long conversational memory) with quantitative evaluation metrics; ACL 2024; 300-turn conversations spanning 35 sessions.
-
-13. MemBench: Towards More Comprehensive Evaluation on the Memory of LLM-based Agents --> Included --> Agent memory-focused benchmark with quantitative evaluation; ACL 2025 (Findings); distinguishes factual from reflective memory.
-
-14. Evaluating the Long-Term Memory of Large Language Models (LOCCO) --> Included --> Long-term memory explicit with quantitative evaluation framework; ACL 2025 (Findings); LOCCO dataset with memory decay analysis.
-
-15. RealMem: Benchmarking LLMs in Real-World Memory-Driven Interaction --> Included --> Memory-driven interaction study; ACL 2026 (Findings); 2,000+ cross-session dialogues grounding memory in realistic scenarios.
-
-16. HaluMem: Evaluating Hallucinations in Memory Systems of Agents --> Included --> Memory-explicit (operation-level hallucination benchmark for agent memory); arXiv 2025; 15k memory points with quantitative evaluation.
-
-17. RAGTruth: A Hallucination Corpus for Developing Trustworthy Retrieval-Augmented Language Models --> Included --> RAG hallucination corpus for memory-augmented generation; ACL 2024; ~18,000 naturally generated responses with word-level annotations.
-
-18. Ragas: Automated Evaluation of Retrieval Augmented Generation --> Included --> RAG evaluation framework; EACL 2024; reference-free evaluation with metrics assessing retrieval (memory) relevance, answer faithfulness, answer relevancy.
-
-19. MIRAGE: Benchmarking Retrieval-Augmented Generation for Medicine --> Included --> Medical RAG benchmark; EMNLP 2024; 7,663 questions directly measuring hallucination in memory-augmented generation.
-
-20. CRAG — Comprehensive RAG Benchmark --> Included --> Comprehensive RAG benchmark; NeurIPS 2024; 4,409 QA pairs with quantitative memory-augmented generation evaluation.
-
-21. RAGEval: Scenario Specific RAG Evaluation Dataset Generation Framework --> Included --> Scenario-based RAG evaluation; ACL 2025; framework with three memory-related metrics: Completeness, Hallucination, Irrelevance.
-
-24. RECALL: A Benchmark for LLMs Robustness against External Counterfactual Knowledge --> Included --> Memory robustness evaluation; 2023 workshop; evaluates LLM robustness when external memory contains false information.
-
-25. Adaptive Chameleon or Stubborn Sloth: Revealing the Behavior of Large Language Models in Knowledge Conflicts --> Included --> Studies knowledge conflicts (memory-related behavior); ICLR 2024 (Spotlight); framework with quantitative confirmation bias metrics.
-
-27. ERBench: An Entity-Relationship based Automatically Verifiable Hallucination Benchmark --> Included --> Memory-grounded hallucination benchmark; NeurIPS 2024; automatically verifiable using entity-relationship models and integrity constraints.
-
-29. UHGEval: Benchmarking the Hallucination of Chinese Large Language Models via Unconstrained Generation --> Included --> Hallucination benchmark for memory evaluation; ACL 2024; quantitative naturally-generated hallucination framework.
-
-33. MMRC: A Large-Scale Benchmark for Understanding Multimodal Large Language Models in Real-World Conversation --> Included --> Explicitly focuses on memory recall in multimodal conversations; arXiv 2025; 5,120 dialogues with quantitative accuracy metrics.
-
-34. SuperMemory-VQA: An Egocentric Visual Question-Answering Benchmark for Long-Horizon Memory --> Included --> Long-horizon memory in egocentric video understanding; arXiv 2026; 4,853 QA pairs with quantitative memory-related metrics.
-
-37. Memory in Large Language Models: Mechanisms, Evaluation and Evolution --> Included --> Comprehensive taxonomy of LLM memory (parametric, contextual, external, procedural); arXiv 2025; evaluation framework with quantitative analysis.
-
-38. MemoryBank: Enhancing Large Language Models with Long-Term Memory --> Included --> Explicit long-term memory mechanism inspired by Ebbinghaus; AAAI 2024; evaluation metrics for memory faithfulness and factual consistency.
-
-41. Beyond Facts: Evaluating Intent Hallucination in Large Language Models (FaithQA) --> Included --> Intent hallucination evaluation with memory/intent understanding; ACL 2025; 20,000+ quantitative test cases.
-
-42. Hallucination Cascade: Analyzing Error Propagation in Multi-Agent LLM Systems --> Included --> Hallucination propagation dynamics in multi-agent memory chains; arXiv 2026; quantitative metrics on error accumulation.
-
-43. MCPHallu: Benchmarking Reasoning, Execution, and Memory Hallucinations in MCP Agents --> Included --> Memory-explicit benchmark; arXiv 2026; 358 tasks diagnosing hallucinations along memory axis; 14 LLMs evaluated.
-
-45. PRISM: Probing Reasoning, Instruction, and Source Memory in LLM Hallucinations --> Included --> Explicitly probes source memory dimension; arXiv 2026; 9,448 quantitative diagnostic instances.
-
-46. ES-MemEval: Benchmarking Conversational Agents on Personalized Long-Term Emotional Support --> Included --> Memory-explicit ("MemEval"); arXiv 2026; evaluates five memory capabilities; EvoEmo dataset for memory benchmarking.
-
-47. Towards Root Memory: Benchmarking and Enhancing Implicit Logical Memory Retrieval for Personalized LLMs --> Included --> Memory-explicit ("Root Memory"); arXiv 2026; IMLogic benchmark for implicit logical memory retrieval.
-
-48. Locomo-Plus: Beyond-Factual Cognitive Memory Evaluation Framework for LLM Agents --> Included --> Memory-explicit framework; arXiv 2026; quantitative evaluation of constraint-consistency in cognitive memory.
-
-49. MemoryBench: A Benchmark for Memory and Continual Learning in LLM Systems --> Included --> Memory-explicit (continual learning + long-term memory); arXiv 2025; quantitative evaluation with 8K–128K token contexts.
-
-50. MemoryRewardBench: Benchmarking Reward Models for Long-Term Memory Management --> Included --> Memory-explicit (reward models for long-term memory); arXiv 2026; quantitative evaluation across 8K–128K tokens.
-
-51. TWIST: A Proposed Benchmark for Intervention Quality in Conversational Memory --> Included --> Memory-explicit (intervention quality); arXiv 2026; quantitative evaluation of contradiction detection, draft vetting, belief updating.
-
-39. MemGPT: Towards LLMs as Operating Systems --> Included --> Virtual context management system for extended conversations; NeurIPS 2023 Workshop; OS-inspired memory architecture with quantitative evaluation on long-term memory tasks.
-
-52. MemBook: A Hierarchical Reasoning-based Memory Framework for Hallucination-Resistant LLM Agents --> Included --> Hierarchical memory architecture (Sessions, Chapters, Memory Points); EMNLP 2026 (Findings); quantitative suppression of cross-stage hallucination propagation.
-
-53. Synthius-Mem: Brain-Inspired Hallucination-Resistant Persona Memory --> Included --> Brain-inspired hierarchical memory; arXiv 2026; 94.4% accuracy on LoCoMo benchmark with adversarial robustness metrics.
-
-54. Memory is Reconstructed, Not Retrieved: Graph Memory for LLM Agents --> Included --> Associative memory graphs with active reconstruction; arXiv 2026; 23% improvements over baselines; quantitative evaluation.
-
-55. Forgetful but Faithful: A Cognitive Memory Architecture and Benchmark for Privacy-Aware Generative Agents (MaRS) --> Included --> Cognitive memory with forgetting policies; arXiv 2025; FiFA benchmark with quantitative coherence and recall accuracy metrics.
-
-56. BioMem: Agentic Memory for Biomedical LLM Agents --> Included --> Agentic memory for biomedical domain; arXiv 2026; HMRU framework with quantitative healthcare evaluation.
-
-57. Oracle Agent Memory as an Enterprise Memory Substrate for Long-Horizon AI Agents --> Included --> Database-native memory substrate; arXiv 2026; 93.8% accuracy with 10.7x fewer tokens than flat-history baselines.
-
-58. Don't Just Trust Your Memory: Evidence-Linked Memory Reduces Memory-Induced Degradation in LLM Agents (WikiTrace) --> Included --> Evidence-linked external memory for memory-induced degradation; arXiv 2026; open-source with quantitative evaluation across five benchmarks.
-
-59. Parameters vs. Context: Fine-Grained Control of Knowledge Reliance in Language Models --> Included --> Parametric vs. contextual memory conflict management; arXiv 2025; Confidence Gain metric; 9.9%-71.9% memory recall control.
-
-60. FIDES: Faithful Inference via Deep Evidence Signals for Retrieval-Memory Conflict in RAG --> Included --> Token-level retrieval-memory conflict detection; arXiv 2026; MIT License; 92–94% context fidelity at 70B scale.
-
-61. Investigating Context-Faithfulness in Large Language Models: The Roles of Memory Strength and Evidence Style --> Included --> Memory strength and internal memory reliance; arXiv 2024; open-source code with quantitative response divergence analysis.
-
-62. Rowen: Adaptive Retrieval-Augmented Generation for Hallucination Mitigation in LLMs --> Included --> Balances parametric and external memory through adaptive retrieval; arXiv 2024; open-source with quantitative hallucination metrics.
-
-63. Studying Large Language Model Behaviors Under Context-Memory Conflicts With Real Documents --> Included --> Context-memory conflict study; arXiv 2024; open-source; quantitative parametric bias and knowledge update failure rates.
-
-64. When Context Leads but Parametric Memory Follows in Large Language Models --> Included --> Knowledge allocation between context (70%) and parametric (30%); EMNLP 2024; WikiAtomic dataset with quantitative hallucination rates.
-
-66. WISE: Rethinking Knowledge Memory for Lifelong Model Editing --> Included --> Dual parametric memory subsystem (main + side); NeurIPS 2024; comprehensive quantitative evaluation; GitHub code available.
-
-67. Distilling Feedback into Memory-as-a-Tool --> Included --> File-based memory system consolidating feedback; arXiv 2026; Pareto frontier analysis; open code and data.
-
-68. RAG-DDR: Optimizing Retrieval-Augmented Generation Using Differentiable Data Rewards --> Included --> Memory management through differentiable data rewards; arXiv 2024; quantitative evaluation; OpenMatch code available.
-
-72. Understand Then Memory: A Cognitive Gist-Driven RAG Framework with Global Semantic Diffusion --> Included --> Explicit semantic gist memory mechanism; arXiv 2026; CogniRank algorithm; code promised on GitHub.
-
-73. MemGraphRAG: Memory-based Multi-Agent System for Graph Retrieval-Augmented Generation --> Included --> Hierarchical global memory (schema, fact, passage); arXiv 2026; multi-agent coordination; GitHub code available.
-
-79. Augmenting Language Models with Long-Term Memory (LongMem) --> Included --> Explicit long-term memory subsystem; NeurIPS 2023 Workshop; cached attention key-value pairs; 40.5% accuracy on suffix identification.
-
-80. Reducing Hallucination in Language Model-based SPARQL Query Generation Using Post-Generation Memory Retrieval (PGMR) --> Included --> Post-generation memory retrieval module; arXiv 2025; 0.0% hallucination rate on URI resolution.
-
-81. Decoding Memories: An Efficient Pipeline for Self-Consistency Hallucination Detection --> Included --> Decoding Memory Pipeline with caching mechanism; arXiv 2025; 3x speedup on hallucination detection; AUROC maintained.
-
-83. Look Twice Before You Answer: Memory-Space Visual Retracing for Hallucination Mitigation in Multimodal Large Language Models --> Included --> Memory-space visual retracing; arXiv 2024; FFN-based key-value memory; +7.0% on POPE, +15.6% on CHAIR.
-
-84. SAFE: A Sparse Autoencoder-Based Framework for Robust Query Enrichment and Hallucination Mitigation in LLMs --> Included --> Sparse autoencoder for hallucination detection; arXiv 2025; 29.45% accuracy improvement on TruthfulQA, BioASQ.
-
-85. Knowledge-Centric Hallucination Detection (RefChecker) --> Included --> Claim-triplet-based fine-grained detection; EMNLP 2024; 18.2-27.2 point improvements in correlation coefficients.
-
-92. In Prospect and Retrospect: Reflective Memory Management for Long-term Personalized Dialogue Agents --> Included --> Reflective memory with prospective/retrospective reflection; ACL 2025; >10% improvement on LongMemEval.
-
-94. TRUSTMEM: Learning Trustworthy Memory Consolidation for LLM Agents with Long-Term Memory --> Included --> Memory consolidation policies with RL-based credit assignment; arXiv 2026; quantitative memory utility and reliability metrics.
-
-95. From Storage to Experience: A Survey on the Evolution of LLM Agent Memory Mechanisms --> Included --> Systematic survey with evolutionary framework (Storage-Reflection-Experience); ACL 2026 (Findings); formal memory taxonomy.
-
-96. A Survey of Agent Memory in the Second Half: Towards Self-Evolving and Long-Horizon Agents --> Included --> Comprehensive 50-author survey on agent memory mechanisms; arXiv 2026; parametric, in-context, external substrates.
-
-97. Are We Ready For An Agent-Native Memory System? --> Included --> System-level evaluation of 12 agent memory architectures; arXiv 2026; quantitative analysis across five benchmarks.
-
-101. Mitigating Hallucination in Large Language Models: A Capability-Oriented Survey on RAG, Reasoning, and Agentic Systems --> Included --> Examines agentic systems (inherently memory-involved); arXiv 2025; capability-oriented on memory-based mitigation.
-
-103. Explicit Working Memory Enhancement for Factuality (EWE) --> Included --> Explicit working memory mechanism; arXiv 2024; 2–6 point VeriScore improvement via fact-checking feedback.
-
-104. Efficient and Effective Internal Memory Retrieval for LLM-based Healthcare Prediction (BioMem) --> Included --> Internal memory retrieval for biomedical domain; arXiv 2026; domain-specific memory enhancement.
-
-106. MemGuard: Preventing Memory Contamination in Long-Term Memory-Augmented LLMs --> Included --> Type-aware memory organization; arXiv 2026; prevents heterogeneous memory contamination.
-
-107. PRISM: Probing Reasoning, Instruction, and Source Memory in LLM Hallucinations --> Included --> Probes source memory dimension; arXiv 2026; CC BY 4.0 license; 9,448 quantitative instances.
-
-110. Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection --> Included --> Adaptive retrieval with self-reflection; NeurIPS 2023; reflection tokens for controlled memory access and factuality.
-
-111. Active Retrieval Augmented Generation (FLARE) --> Included --> Active memory access mechanism; EMNLP 2023; forward-looking signals determine when to access external memory.
-
-112. Corrective Retrieval Augmented Generation (CRAG) --> Included --> Memory quality management; ICLR 2024; retrieval evaluator with confidence-based actions; web search for low-quality retrievals.
-
-113. Chain-of-Note: Enhancing Robustness in Retrieval-Augmented Language Models --> Included --> Sequential reading notes for retrieved memory; EMNLP 2024; +7.9 EM improvement on noisy cases.
-
-114. Cognitive Architectures for Language Agents (CoALA) --> Included --> Systematic framework with modular memory; TMLR 2024; structured decision-making with memory components.
-
-116. Generative Agents: Interactive Simulacra of Human Behavior --> Included --> Explicit memory architecture (natural language records, reflections, dynamic retrieval); ACM UIST 2023; core memory-driven behavior.
-
-117. LSTM-MAS: A Long Short-Term Memory Inspired Multi-Agent System for Long-Context Understanding --> Included --> Hierarchical LSTM-inspired memory; arXiv 2026; gated memory mechanisms; avoids hallucination propagation.
-
-119. TeleMem: Building Long-Term and Multimodal Memory for Agentic AI --> Included --> Unified long-term multimodal memory system; arXiv 2026; 19% accuracy improvement, 43% token reduction vs. Mem0.
-
-121. MemGraphRAG: Memory-based Multi-Agent System for Graph Retrieval-Augmented Generation --> Included --> Multi-agent shared memory for graph construction; arXiv 2026; logical conflict resolution; GitHub code available.
-
-122. Understand Then Memory: A Cognitive Gist-Driven RAG Framework with Global Semantic Diffusion (CogitoRAG) --> Included --> Semantic gist memory extraction; arXiv 2026; CogniRank algorithm for memory-guided retrieval.
-
-123. TC-RAG: Turing-Complete RAG's Case Study on Medical LLM Systems --> Included --> State-machine memory with Push/Pop actions; ACM MM 2024; 7.20% accuracy improvement in medical domain.
-
-124. AssistRAG: Boosting the Potential of Large Language Models with an Intelligent Information Assistant --> Included --> Memory-augmented with curriculum learning; NeurIPS 2024; memory building and tool usage optimization.
-
-125. Improving Factuality and Reasoning in Language Models through Multiagent Debate --> Included --> Multi-agent debate for memory consistency; ICML 2024; consensus through memory state alignment.
-
-126. Seeing through the Conflict: Transparent Knowledge Conflict Handling in Retrieval-Augmented Generation (TCR) --> Included --> Transparent memory-context conflict resolution; arXiv 2026; dual contrastive encoders; SNR-weighted evaluation.
+## Criteria Applied
+
+**Include if ALL four hold:**
+1. Published **2023–2026** (strict; 2022 papers excluded)
+2. **Explicitly addresses** LLM memory systems, memory-augmented architectures, memory-based anti-hallucination methods, OR memory evaluation benchmarks — "memory" must appear as a primary research dimension, not incidentally
+3. **Open-source weights / architecture OR sufficient technical specification** for reproducibility
+4. **Reports quantitative evaluation** on recognised datasets or benchmarks
+
+**Exclude if ANY of these apply:**
+- E1: Exclusive reliance on closed-source APIs (black-box internals)
+- E2: Standard RAG without a dedicated memory-management subsystem; or non-memory anti-hallucination (fine-tuning, attention analysis, prompt engineering)
+- E3: Theoretical / position paper without quantitative baselines; survey without primary quantitative contribution
 
 ---
 
-## EXCLUDED PAPERS (Failed criteria)
+## ⚠️ Duplicates Noted (counted once under their first entry)
 
-1. HaluEval: A Large-Scale Hallucination Evaluation Benchmark for Large Language Models --> Excluded --> Focuses on hallucination detection without explicitly addressing dedicated memory systems or memory-based anti-hallucination.
-
-2. FActScore: Fine-grained Atomic Evaluation of Factual Precision in Long Form Text Generation --> Excluded --> Lacks memory system focus; no open-source code/architecture specification documented.
-
-3. FELM: Benchmarking Factuality Evaluation of Large Language Models --> Excluded --> Domain-agnostic factuality framework without explicit memory system or memory-based anti-hallucination focus.
-
-4. The Dawn After the Dark: An Empirical Study on Factuality Hallucination in Large Language Models --> Excluded --> Empirical hallucination study without dedicated memory system focus; no clear code availability.
-
-6. FaithBench: A Diverse Hallucination Benchmark for Summarization by Modern LLMs --> Excluded --> General hallucination detection for summarization without explicit memory systems or memory-based methodology.
-
-7. FactBench: A Dynamic Benchmark for In-the-Wild Language Model Factuality Evaluation --> Excluded --> Real-world factuality evaluation without dedicated memory system architecture or memory-based anti-hallucination focus.
-
-9. Factcheck-Bench: Fine-Grained Evaluation Benchmark for Automatic Fact-checkers --> Excluded --> Factuality evaluation rather than memory mechanisms; doesn't explicitly address memory-centric evaluation.
-
-22. WikiContradict: A Benchmark for Evaluating LLMs on Real-World Knowledge Conflicts from Wikipedia --> Excluded --> Knowledge conflicts focus without core memory-augmentation subsystem; lacks quantitative framework.
-
-23. ConflictBank: A Benchmark for Evaluating the Influence of Knowledge Conflicts in LLMs --> Excluded --> Knowledge conflict dataset without memory-augmentation focus; primarily annotation-based rather than quantitative.
-
-26. Knowledge Conflicts for LLMs: A Survey --> Excluded --> Survey paper without primary quantitative benchmarks or evaluation; lacks memory-explicit focus.
-
-28. Med-HALT: Medical Domain Hallucination Test for Large Language Models --> Excluded --> Medical domain-specific without general memory focus; lacks clear quantitative hallucination measurements.
-
-30. TofuEval: Evaluating Hallucinations of LLMs on Topic-Focused Dialogue Summarization --> Excluded --> Summarization task-focused, not memory-focused; lacks demonstrated memory mechanisms.
-
-31. DiaHalu: A Dialogue-level Hallucination Evaluation Benchmark for Large Language Models --> Excluded --> Dialogue hallucination without memory systems focus; evaluates hallucination types without addressing memory architecture.
-
-32. ToolBeHonest: A Multi-level Hallucination Diagnostic Benchmark for Tool-Augmented Large Language Models --> Excluded --> Tool-execution focused rather than memory-focused; addresses execution rather than memory management.
-
-35. Long-form Factuality in Large Language Models (LongFact + SAFE) --> Excluded --> Factuality evaluation rather than explicit memory mechanisms; lacks memory architecture focus.
-
-36. KIEval: A Knowledge-grounded Interactive Evaluation Framework for Large Language Models --> Excluded --> Data contamination focus; lacks explicit memory mechanism despite quantitative evaluation.
-
-40. DialFork: Going Beyond Factuality to Evaluate Procedural Hallucination in Conversational Agents --> Excluded --> Procedural hallucination without explicit memory mechanisms; 36,278 dialogues but no memory-specific design.
-
-44. Hallucination Detection in LLMs: Fast and Memory-Efficient Fine-Tuned Models --> Excluded --> Detection technique paper focused on efficiency, not memory-explicit evaluation or hallucination benchmarking.
-
-65. Hallucination-Guided Unlearning: Using Hallucination Traces to Reveal Overfitted Memories --> Excluded --> Memory-focused but lacks code availability or publication commitment (transparency criterion not met).
-
-69. Towards Adaptive Memory-Based Optimization for Enhanced Retrieval-Augmented Generation --> Excluded --> Adaptive retrieval strategies rather than explicit memory subsystem design; no code availability.
-
-70. Scaling Test-Time Inference with Policy-Optimized, Dynamic Retrieval-Augmented Generation --> Excluded --> Dynamic retrieval optimization without dedicated memory subsystem design; no code availability.
-
-71. Removal of Hallucination on Hallucination: Debate-Augmented RAG --> Excluded --> Multi-agent debate without dedicated memory subsystem; memory management is implicit, not architectural.
-
-74. Reducing Hallucination in Structured Outputs via Retrieval-Augmented Generation --> Excluded --> Workflow generation focus without explicit memory architecture or dedicated memory subsystem.
-
-75. ReEval: Automatic Hallucination Evaluation for Retrieval-Augmented Large Language Models via Transferable Adversarial Attacks --> Excluded --> Evaluation framework without explicit memory subsystem design; adversarial attacks on RAG without memory focus.
-
-76. Can Knowledge Graphs Reduce Hallucinations in LLMs? A Survey --> Excluded --> Survey of KG-based augmentation; lacks primary quantitative memory evaluation or benchmarking.
-
-77. Augmenting LLMs with Knowledge: A Survey on Hallucination Prevention --> Excluded --> Survey of knowledge augmentation; lacks memory-specific focus and primary quantitative results.
-
-78. Knowledge Graph-Enhanced Large Language Model Based on Question Decomposition and Atomic Retrieval (KELDaR) --> Excluded --> KG-based framework without explicit dedicated memory subsystem architecture.
-
-82. Generation Constraint Scaling Can Mitigate Hallucination --> Excluded --> Memory readout vector scaling; lacks memory subsystem architecture despite memory-related approach.
-
-86. Lookback Lens: Detecting and Mitigating Contextual Hallucinations Using Attention Maps --> Excluded --> Attention-based detection without explicit memory subsystem or dedicated memory architecture.
-
-87. SIRIN: A Unified Toolkit for Detecting Contextual Hallucinations --> Excluded --> Detection toolkit without explicit memory subsystem design; supports detection without memory management.
-
-88. Citation-Enhanced Generation for LLM-based Chatbots --> Excluded --> Citation generation focus; RAG + NLI approach without dedicated memory subsystem.
-
-89. Mechanistic Understanding and Mitigation of Language Model Non-Factual Hallucinations --> Excluded --> Internal fact-retrieval focus without dedicated memory subsystem or explicit memory architecture.
-
-90. Zero-Resource Hallucination Prevention for Large Language Models (SELF-FAMILIARITY) --> Excluded --> Input-output self-evaluation for hallucination prevention, not memory systems.
-
-91. Controlling Risk of Retrieval-Augmented Generation: A Counterfactual Prompting Framework --> Excluded --> RAG confidence control via prompting; not explicit memory management or consolidation.
-
-93. Learning from Hallucinations: Mitigating Hallucinations via Internal Representation Intervention --> Excluded --> Representation intervention focus; not memory systems or memory consolidation.
-
-98. Factuality of Large Language Models: A Survey --> Excluded --> Generic hallucination/factuality survey without explicit memory dimension.
-
-99. A Comprehensive Survey of Hallucination in Large Language, Image, Video and Audio Foundation Models --> Excluded --> Multimodal hallucination survey without memory-focused analysis.
-
-100. Insights into Classifying and Mitigating LLMs' Hallucinations --> Excluded --> Lacks substantive depth; no explicit memory focus or rigorous methodology.
-
-102. Hallucinations in LLMs: A Lifecycle-Based Survey of Causes, Detection, Mitigation, and Prevention --> Excluded --> Lifecycle framework without memory-specific dimension; no memory enhancement focus.
-
-108. Retrieval-Augmented Generation for Large Language Models: A Survey --> Excluded --> Generic RAG paradigm survey without explicit memory management subsystems focus.
-
-109. A Survey on Retrieval-Augmented Text Generation for Large Language Models --> Cannot Evaluate --> Paper not found in PDF directories.
-
-115. A Survey on Large Language Model based Autonomous Agents --> Excluded --> Generic agent survey without explicit memory focus; no memory-specific quantitative evaluation.
-
-118. Check Your Facts and Try Again: Improving LLMs with External Knowledge (LLM-Augmenter) --> Excluded --> Fact-checking with external knowledge rather than explicit agent/long-term memory architecture.
-
-120. From Local to Global: A Graph RAG Approach (GraphRAG) --> Excluded --> Graph-based RAG without explicit agent memory architecture; focuses on retrieval augmentation.
-
-127. Siren's Song in the AI Ocean: A Survey on Hallucination in Large Language Models --> Excluded --> Survey paper; no primary quantitative benchmarks or memory-augmented methods.
-
-128. A Survey on Hallucination in Large Language Models: Principles, Taxonomy, Challenges, and Open Questions --> Excluded --> Survey paper; no primary quantitative benchmarks or memory-augmented methods.
+- **Paper 107** = duplicate of Paper 45 (PRISM) — not re-evaluated
+- **Paper 121** = duplicate of Paper 73 (MemGraphRAG)
+- **Paper 122** = duplicate of Paper 72 (CogitoRAG/Understand Then Memory)
 
 ---
 
-## SUMMARY STATISTICS
+# INCLUDED PAPERS
+
+## RQ1 – Benchmarks & Evaluation
+
+**5. HalluLens: LLM Hallucination Benchmark --> Included --> ACL 2025; abstract explicitly distinguishes hallucinations contradicting "parametric memory" (extrinsic) vs. context (intrinsic); open-source; quantitative benchmark evaluated with dynamic test generation.**
+
+**10. What Matters in Memorizing and Recalling Facts? --> Included --> EMNLP 2024 (Findings); title and scope explicitly target memorising and recalling facts from parametric memory; BELIEF framework with MyriadLAMA dataset provide quantitative probing results.**
+
+**11. LongMemEval: Benchmarking Chat Assistants on Long-Term Interactive Memory --> Included --> ICLR 2025; core research object is long-term memory with five dedicated memory-ability dimensions; open benchmark; 30% cross-session accuracy drop is a primary quantitative finding.**
+
+**12. Evaluating Very Long-Term Conversational Memory of LLM Agents (LoCoMo) --> Included --> ACL 2024; explicitly designed to evaluate LLMs on very long-term conversational memory; open dataset; quantitative evaluation across 300-turn, up-to-35-session conversations.**
+
+**13. MemBench: Towards More Comprehensive Evaluation on the Memory of LLM-based Agents --> Included --> ACL 2025 (Findings); benchmark explicitly evaluates agent memory across effectiveness, efficiency, and capacity; distinguishes factual from reflective memory with quantitative metrics.**
+
+**14. Evaluating the Long-Term Memory of Large Language Models (LOCCO) --> Included --> ACL 2025 (Findings); LOCCO dataset is explicitly for LLM long-term memory evaluation; demonstrates memory decay over time quantitatively.**
+
+**15. RealMem: Benchmarking LLMs in Real-World Memory-Driven Interaction --> Included --> ACL 2026 (Findings); first benchmark grounded in memory-driven interaction; 2,000+ cross-session dialogues with quantitative evaluation of memory-dependent task completion.**
+
+**16. HaluMem: Evaluating Hallucinations in Memory Systems of Agents --> Included --> arXiv 2025; first operation-level hallucination benchmark explicitly for agent memory systems; 15k memory points, 1M+ tokens, quantitative across extraction/updating/QA operations.**
+
+**17. RAGTruth: A Hallucination Corpus for Developing Trustworthy Retrieval-Augmented Language Models --> Included --> ACL 2024; 18,000-response corpus for hallucination in memory-augmented generation; word-level annotations; quantitative fine-tuning baselines; serves as an evaluation benchmark for RAG memory faithfulness.**
+
+**23. ConflictBank: A Benchmark for Evaluating the Influence of Knowledge Conflicts in LLMs --> Included --> NeurIPS 2024; explicitly studies knowledge conflicts across three axes including context-memory and intra-memory conflicts; 7.4M claim-evidence pairs and 553k QA pairs provide quantitative baselines.**
+
+**24. RECALL: A Benchmark for LLMs Robustness against External Counterfactual Knowledge --> Included --> arXiv 2023 (workshop); directly evaluates the conflict between parametric (internal) memory and counterfactual external context; quantitative robustness metrics.**
+
+**25. Adaptive Chameleon or Stubborn Sloth: Revealing the Behavior of LLMs in Knowledge Conflicts --> Included --> ICLR 2024 (Spotlight); framework extracting parametric knowledge and constructing counter-evidence to study parametric memory behaviour; quantitative confirmation-bias measurements.**
+
+**28. Med-HALT: Medical Domain Hallucination Test for Large Language Models --> Included --> CoNLL 2023; abstract explicitly includes "memory-based hallucination tests" alongside reasoning tests; domain-specific but memory evaluation is a primary stated dimension; quantitative benchmark.**
+
+**34. SuperMemory-VQA: An Egocentric Visual Question-Answering Benchmark for Long-Horizon Memory --> Included --> arXiv 2026; explicitly benchmarks long-horizon memory in egocentric video; 4,853 QA pairs; assesses memory hallucination robustness with unanswerable option.**
+
+**37. Memory in Large Language Models: Mechanisms, Evaluation and Evolution --> Included --> arXiv 2025; comprehensive survey with explicit memory taxonomy (parametric, contextual, external, procedural) plus an evaluation framework; qualifies as memory-system survey with systematic analysis.**
+
+**38. MemoryBank: Enhancing Large Language Models with Long-Term Memory --> Included --> AAAI 2024; proposes a long-term memory mechanism inspired by Ebbinghaus Forgetting Curve; evaluation metrics for memory faithfulness and factual consistency are reported quantitatively.**
+
+**43. MCPHallu: Benchmarking Reasoning, Execution, and Memory Hallucinations in MCP Agents --> Included --> arXiv 2026; explicitly includes a "memory" hallucination axis; 358 tasks across five domains; quantitative evaluation of 14 LLMs.**
+
+**45. PRISM: Probing Reasoning, Instruction, and Source Memory in LLM Hallucinations --> Included --> arXiv 2026; "source memory" is an explicit fourth diagnostic dimension; 9,448 instances; quantitative disentanglement of hallucination sources including memory.**
+
+**46. ES-MemEval: Benchmarking Conversational Agents on Personalized Long-Term Emotional Support --> Included --> WWW 2026; evaluates five memory capabilities explicitly in long-term conversational agents; EvoEmo dataset; quantitative memory performance metrics.**
+
+**47. Towards Root Memory: Benchmarking and Enhancing Implicit Logical Memory Retrieval for Personalized LLMs --> Included --> arXiv 2026; IMLogic benchmark for implicit logical memory retrieval; root memory representation; quantitative divergence between semantic and logical relevance.**
+
+**48. Locomo-Plus: Beyond-Factual Cognitive Memory Evaluation Framework for LLM Agents --> Included --> arXiv 2026; cognitive memory evaluation framework; extends factual accuracy to constraint-consistency; quantitative evaluation of memory management behaviour.**
+
+**49. MemoryBench: A Benchmark for Memory and Continual Learning in LLM Systems --> Included --> arXiv 2025; comprehensive benchmark for long-term memory and continual learning; 8K–128K token contexts; quantitative effectiveness and efficiency metrics.**
+
+**50. MemoryRewardBench: Benchmarking Reward Models for Long-Term Memory Management --> Included --> arXiv 2026; first benchmark studying reward models for long-term memory management quality; quantitative systematic gap analysis across 8K–128K tokens.**
+
+**51. TWIST: A Proposed Benchmark for Intervention Quality in Conversational Memory --> Included --> arXiv 2026; explicitly evaluates memory-system intervention quality (contradiction detection, belief updating, draft vetting); quantitative evaluation dimensions described; note: no PDF available, evaluated from abstract.**
+
+---
+
+## RQ2 – Memory-Based Methods
+
+**39. MemGPT: Towards LLMs as Operating Systems --> Included --> arXiv/NeurIPS 2023 Workshop; OS-inspired virtual context management system; dedicated memory hierarchy with explicit page-in/page-out operations; hallucination evaluation on long-term memory scenarios; open-source.**
+
+**52. MemBook: A Hierarchical Reasoning-based Memory Framework for Hallucination-Resistant LLM Agents --> Included --> EMNLP 2026 (Findings); hierarchical time-aware memory (Sessions → Chapters → Memory Points) with explicit retrieval mechanism suppressing cross-stage hallucination; quantitative results.**
+
+**53. Synthius-Mem: Brain-Inspired Hallucination-Resistant Persona Memory --> Included --> arXiv 2026; brain-inspired hierarchical memory across six cognitive domains; achieves 94.4% on LoCoMo; adversarial robustness tests provide quantitative baselines.**
+
+**54. Memory is Reconstructed, Not Retrieved: Graph Memory for LLM Agents --> Included --> arXiv 2026; associative memory graphs with active reconstruction mechanism; up to 23% improvement over baselines; explicitly reduces hallucinations from imprecise retrieval.**
+
+**55. Forgetful but Faithful: A Cognitive Memory Architecture for Privacy-Aware Generative Agents (MaRS) --> Included --> arXiv 2025; cognitive memory architecture with six forgetting policies; FiFA benchmark with quantitative recall accuracy, coherence, and goal-completion metrics.**
+
+**56. BioMem: Agentic Memory for Biomedical LLM Agents --> Included --> arXiv 2026; HMRU (Hierarchical Memory Retrieval and Utilization) framework for domain-specific memory; quantitative biomedical QA evaluation.**
+
+**57. Oracle Agent Memory as an Enterprise Memory Substrate for Long-Horizon AI Agents --> Included --> arXiv 2026; database-native memory substrate with explicit memory lifecycle management; 93.8% accuracy with 10.7x fewer tokens vs. flat-history baseline.**
+
+**58. Don't Just Trust Your Memory: Evidence-Linked Memory Reduces Memory-Induced Degradation in LLM Agents (WikiTrace) --> Included --> arXiv 2026; evidence-linked memory system directly addressing memory-induced degradation; quantitative evaluation across five benchmarks; open-source noted.**
+
+**59. Parameters vs. Context: Fine-Grained Control of Knowledge Reliance in Language Models --> Included --> arXiv 2025; explicit mechanism governing reliance on parametric memory vs. context; reduces hallucination under knowledge conflict; quantitative Confidence Gain metric.**
+
+**60. FIDES: Faithful Inference via Deep Evidence Signals for Retrieval-Memory Conflict in RAG --> Included --> arXiv 2026; training-free decoder for token-level retrieval-memory conflict; explicitly frames the problem as parametric-memory vs. retrieval; 92–94% context fidelity at 70B scale.**
+
+**61. Investigating Context-Faithfulness in LLMs: The Roles of Memory Strength and Evidence Style --> Included --> arXiv 2024; explicitly quantifies "LLM memory strength" via response divergence; demonstrates how parametric memory overcomes external evidence; open code.**
+
+**62. Rowen: Adaptive Retrieval-Augmented Generation for Hallucination Mitigation in LLMs --> Included --> arXiv 2024; explicitly balances parametric and external memory through adaptive retrieval activation; dedicated memory-switching subsystem; quantitative hallucination metrics.**
+
+**63. Studying LLM Behaviors Under Context-Memory Conflicts With Real Documents --> Included --> arXiv 2024; directly studies context-parametric memory conflicts using real documents; taxonomy of conflict scenarios; quantitative parametric-bias measurements.**
+
+**64. When Context Leads but Parametric Memory Follows in Large Language Models --> Included --> EMNLP 2024; investigates knowledge allocation between contextual (~70%) and parametric memory (~30%); WikiAtomic dataset; hallucination rates as a function of memory source.**
+
+**65. Hallucination-Guided Unlearning: Using Hallucination Traces to Reveal Overfitted Memories --> Included --> arXiv 2026; uses hallucination failures to locate and unlearn overfitted parametric memories; sparse MLP neuron edits; quantitative benchmarks (TOFU, WMDP, MMLU).**
+
+**66. WISE: Rethinking Knowledge Memory for Lifelong Model Editing --> Included --> NeurIPS 2024; dual parametric memory scheme (main + side memory) for lifelong editing; directly addresses memory reliability/generalization/locality; quantitative evaluation; open code.**
+
+**67. Distilling Feedback into Memory-as-a-Tool --> Included --> arXiv 2026; converts feedback into persistent retrievable memory via file-based tool calls; explicit memory management architecture; quantitative Pareto-frontier analysis.**
+
+**69. Towards Adaptive Memory-Based Optimization for Enhanced Retrieval-Augmented Generation --> Included --> arXiv 2025; abstract explicitly states "dynamically adjusting retrieval and memory management during generation"; dedicated memory management component; quantitative RAG benchmarks.**
+
+**72. Understand Then Memory: A Cognitive Gist-Driven RAG Framework with Global Semantic Diffusion (CogitoRAG) --> Included --> arXiv 2026; extracts semantic gists before memory storage, reducing fragmentation-induced hallucinations; CogniRank algorithm; dedicated memory preprocessing subsystem.**
+
+**73. MemGraphRAG: Memory-based Multi-Agent System for Graph Retrieval-Augmented Generation --> Included --> arXiv 2026; multi-agent architecture with shared graph-structured memory; explicit memory construction, conflict resolution, and retrieval pipeline; quantitative evaluation.**
+
+**78. Knowledge Graph-Enhanced LLM Based on Question Decomposition and Atomic Retrieval (KELDaR) --> Included --> EMNLP 2024 (Findings); uses KG explicitly as "external structured memory" for atomic-level reasoning; dedicated memory query architecture; quantitative QA baselines.**
+
+**79. Augmenting Language Models with Long-Term Memory (LongMem) --> Included --> arXiv/NeurIPS 2023 Workshop; persistent long-term memory augmentation with dedicated cached-attention memory module; enables faithful retrieval over extended interactions; quantitative results.**
+
+**80. Reducing Hallucination in SPARQL Query Generation Using Post-Generation Memory Retrieval (PGMR) --> Included --> arXiv 2025; dedicated post-generation memory retrieval module separating URI resolution from query syntax; near-zero URI hallucination rate on LCQUAD 2.0 and QALD-10.**
+
+**81. Decoding Memories: An Efficient Pipeline for Self-Consistency Hallucination Detection --> Included --> arXiv 2025; Decoding Memory Pipeline with explicit memory caching for multi-generation; 3x speedup without AUROC loss; dedicated memory mechanism for detection.**
+
+**82. Generation Constraint Scaling Can Mitigate Hallucination --> Included --> arXiv 2024; explicitly scales "memory readout vectors" to constrain factual generation; directly manipulates parametric memory readout as an anti-hallucination mechanism; quantitative evaluation.**
+
+**83. Look Twice Before You Answer: Memory-Space Visual Retracing for Hallucination Mitigation in Multimodal LLMs --> Included --> arXiv 2024; memory-space visual retracing reinjects visual tokens via FFN-based key-value memory; dedicated memory mechanism in MLLMs; +7.0% POPE, +15.6% CHAIR.**
+
+**84. SAFE: A Sparse Autoencoder-Based Framework for Robust Query Enrichment and Hallucination Mitigation in LLMs --> Included --> arXiv 2025; sparse autoencoder probes parametric memory internals to enrich queries; directly targets parametric memory representations; +29.45% accuracy on TruthfulQA, BioASQ.**
+
+**89. Mechanistic Understanding and Mitigation of Language Model Non-Factual Hallucinations --> Included --> EMNLP 2024 (Findings); explicitly "identifies two distinct failure modes in parametric memory" and mitigates via internal fact-retrieval restoration; quantitative evaluation.**
+
+**92. In Prospect and Retrospect: Reflective Memory Management for Long-term Personalized Dialogue Agents --> Included --> ACL 2025; combines prospective and retrospective reflection explicitly for memory management; dedicated memory management system; >10% improvement on LongMemEval.**
+
+**94. TRUSTMEM: Learning Trustworthy Memory Consolidation for LLM Agents with Long-Term Memory --> Included --> arXiv 2026; RL-based memory consolidation policy explicitly reducing hallucinated memory entries; dedicated memory lifecycle management; quantitative utility and reliability metrics.**
+
+**95. From Storage to Experience: A Survey on the Evolution of LLM Agent Memory Mechanisms --> Included --> ACL 2026 (Findings); systematic survey with evolutionary taxonomy (Storage → Reflection → Experience) explicitly for LLM agent memory; establishes memory design principles; qualifies as memory-explicit survey.**
+
+**96. A Survey of Agent Memory in the Second Half: Towards Self-Evolving and Long-Horizon Agents --> Included --> arXiv 2026; 50-author survey explicitly and entirely focused on agent memory across parametric, in-context, and external substrates; systematic analysis qualifies as memory-explicit survey.**
+
+**97. Are We Ready For An Agent-Native Memory System? --> Included --> arXiv 2026; systematic empirical study of 12 agent memory architectures across five benchmarks; decomposes memory into representation, storage, extraction, update modules; quantitative hallucination-prone configuration analysis.**
+
+**103. Explicit Working Memory Enhancement for Factuality (EWE) --> Included --> arXiv 2024; integrates a real-time working memory module refreshed via fact-checking and retrieval feedback; explicit working memory architecture; 2–6 point VeriScore improvement.**
+
+**104. Efficient and Effective Internal Memory Retrieval for LLM-based Healthcare Prediction (BioMem) --> Included --> arXiv 2026; focuses on internal parametric memory retrieval in clinical settings; dedicated memory retrieval mechanism; quantitative healthcare prediction evaluation.**
+
+**105. The Memory Trap: Language Agents Overgeneralize from Benign Interactions --> Included --> arXiv 2026; demonstrates that agent memory causes hallucination-like unsafe behaviour through overgeneralization; explicit memory failure mode study; quantitative behavioural analysis.**
+
+**106. MemGuard: Preventing Memory Contamination in Long-Term Memory-Augmented LLMs --> Included --> arXiv 2026; type-aware memory organisation framework preventing heterogeneous memory contamination; dedicated memory integrity mechanism; quantitative factual-consistency evaluation.**
+
+**110. Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection --> Included --> NeurIPS 2023; trains LM with dedicated reflection tokens that explicitly control external memory access decisions; on-demand retrieval with self-critique is a dedicated memory-access management subsystem; quantitative factuality benchmarks.**
+
+**111. Active Retrieval Augmented Generation (FLARE) --> Included --> EMNLP 2023; actively decides when and what to retrieve using forward-looking predictions; dedicated active memory-access management mechanism; iterative query-and-regenerate with quantitative evaluation.**
+
+**112. Corrective Retrieval Augmented Generation (CRAG, method) --> Included --> ICLR 2024; lightweight retrieval evaluator with confidence-based corrective actions (web search fallback); dedicated memory quality-management subsystem distinct from standard RAG; decompose-recompose algorithm; quantitative benchmarks.**
+
+**114. Cognitive Architectures for Language Agents (CoALA) --> Included --> TMLR 2024; systematic framework with modular memory as a first-class component (working, episodic, semantic, procedural); provides architectural specification enabling reproducibility; widely adopted as a memory taxonomy reference.**
+
+**116. Generative Agents: Interactive Simulacra of Human Behavior --> Included --> ACM UIST 2023; explicit memory architecture using natural language memory records, synthesized reflective summaries, and dynamic retrieval; memory is the primary architectural contribution; quantitative behavioural evaluation.**
+
+**117. LSTM-MAS: A Long Short-Term Memory Inspired Multi-Agent System for Long-Context Understanding --> Included --> arXiv 2026; explicitly emulates LSTM gated memory with worker/filter/judge/manager agents; dedicated memory management architecture inspired by LSTM; quantitative evaluation on long-context tasks.**
+
+**119. TeleMem: Building Long-Term and Multimodal Memory for Agentic AI --> Included --> arXiv 2026; unified long-term and multimodal memory system with narrative extraction and structured writing pipeline; 19% higher accuracy, 43% fewer tokens vs. Mem0; explicit memory architecture.**
+
+**123. TC-RAG: Turing-Complete RAG's Case Study on Medical LLM Systems --> Included --> ACM MM 2024; Turing-complete system with explicit memory stack using Push/Pop operations for state variable management; dedicated memory-management subsystem; 7.20% accuracy improvement.**
+
+**124. AssistRAG: Boosting the Potential of LLMs with an Intelligent Information Assistant --> Included --> NeurIPS 2024; abstract explicitly describes "memory building" as a component alongside tool usage and action execution; dedicated memory construction and management; curriculum learning; quantitative benchmarks.**
+
+**126. Seeing through the Conflict: Transparent Knowledge Conflict Handling in RAG (TCR) --> Included --> arXiv 2026; dual contrastive encoders for semantic match and factual consistency; self-answerability estimation for parametric-retrieval conflict resolution; dedicated memory-conflict management subsystem; quantitative evaluation.**
+
+---
+
+# EXCLUDED PAPERS
+
+**1. HaluEval: A Large-Scale Hallucination Evaluation Benchmark for LLMs --> Excluded --> Tests LLM hallucination recognition generally; no memory system, memory evaluation benchmark, or memory management subsystem; E2 applies.**
+
+**2. FActScore: Fine-grained Atomic Evaluation of Factual Precision in Long Form Text Generation --> Excluded --> Evaluates factual precision in generation; no memory architecture or memory evaluation dimension; E2 applies.**
+
+**3. FELM: Benchmarking Factuality Evaluation of Large Language Models --> Excluded --> Segment-level factuality evaluation benchmark; no memory system or memory-evaluation focus; E2 applies.**
+
+**4. The Dawn After the Dark: An Empirical Study on Factuality Hallucination in LLMs (HaluEval 2.0) --> Excluded --> Systematic hallucination study without memory as a primary research object; covers detection, source, and mitigation broadly; E2 applies.**
+
+**6. FaithBench: A Diverse Hallucination Benchmark for Summarization by Modern LLMs --> Excluded --> Hallucination benchmark for the summarisation task; no memory system, memory management, or memory evaluation dimension; E2 applies.**
+
+**7. FactBench: A Dynamic Benchmark for In-the-Wild Language Model Factuality Evaluation --> Excluded --> Dynamic factuality evaluation from real-world usage; no memory architecture or memory-specific evaluation; E2 applies.**
+
+**8. TruthfulQA: Measuring How Models Mimic Human Falsehoods --> Excluded --> Published 2022; fails strict date criterion (Criterion 1). Foundational but out of scope.**
+
+**9. Factcheck-Bench: Fine-Grained Evaluation Benchmark for Automatic Fact-checkers --> Excluded --> Fine-grained factuality evaluation for fact-checkers; no memory system or memory-evaluation focus; E2 applies.**
+
+**18. Ragas: Automated Evaluation of Retrieval Augmented Generation --> Excluded --> General-purpose RAG evaluation framework with standard retrieval metrics; no dedicated memory-management subsystem; E2 applies.**
+
+**19. MIRAGE: Benchmarking Retrieval-Augmented Generation for Medicine --> Excluded --> Domain-specific standard RAG benchmark; evaluates retrieval and generation without a dedicated memory-management component; E2 applies.**
+
+**20. CRAG — Comprehensive RAG Benchmark (NeurIPS 2024) --> Excluded --> General RAG performance benchmark across five domains; no dedicated memory management subsystem; standard retrieval evaluation; E2 applies. (Note: distinct from CRAG the corrective method, paper 112, which is included.)**
+
+**21. RAGEval: Scenario Specific RAG Evaluation Dataset Generation Framework --> Excluded --> Schema-based RAG evaluation pipeline; standard RAG without dedicated memory management; Completeness/Hallucination/Irrelevance metrics do not address memory systems; E2 applies.**
+
+**22. WikiContradict: A Benchmark for Evaluating LLMs on Real-World Knowledge Conflicts from Wikipedia --> Excluded --> Evaluates inter-context conflicts between Wikipedia sections; focus is context-context conflict reasoning rather than parametric memory management; E2 applies.**
+
+**26. Knowledge Conflicts for LLMs: A Survey --> Excluded --> Systematic survey on knowledge conflict types including context-memory; however, presents no primary quantitative evaluation baselines of its own; E3 applies.**
+
+**27. ERBench: An Entity-Relationship based Automatically Verifiable Hallucination Benchmark --> Excluded --> Automatically converts relational databases into hallucination benchmarks; no memory system or memory evaluation dimension; primary contribution is automatic verification via integrity constraints; E2 applies.**
+
+**29. UHGEval: Benchmarking the Hallucination of Chinese Large Language Models --> Excluded --> General-purpose hallucination benchmark for Chinese LLMs; no memory system or memory evaluation dimension; E2 applies.**
+
+**30. TofuEval: Evaluating Hallucinations of LLMs on Topic-Focused Dialogue Summarization --> Excluded --> Hallucination benchmark for dialogue summarisation; no memory system or memory management; E2 applies.**
+
+**31. DiaHalu: A Dialogue-level Hallucination Evaluation Benchmark --> Excluded --> Dialogue-level hallucination benchmark across four domains; no dedicated memory system or memory evaluation dimension; E2 applies.**
+
+**32. ToolBeHonest: A Multi-level Hallucination Diagnostic Benchmark for Tool-Augmented LLMs --> Excluded --> Hallucination diagnostic for tool-augmented LLMs; focus is tool execution fidelity, not memory systems; E2 applies.**
+
+**33. MMRC: A Large-Scale Benchmark for Understanding Multimodal LLMs in Real-World Conversation --> Excluded --> General multimodal conversation benchmark; memory recall is one of six evaluated abilities, not the primary research object; Criterion 2 not met.**
+
+**35. Long-form Factuality in Large Language Models (LongFact + SAFE) --> Excluded --> Long-form factuality evaluation using search-augmented claim verification; no dedicated memory management subsystem; SAFE uses Google Search as a retrieval oracle, not a memory architecture; E2 applies.**
+
+**36. KIEval: A Knowledge-grounded Interactive Evaluation Framework for LLMs --> Excluded --> Addresses data contamination via interactive evaluation; no memory system focus; E2 applies.**
+
+**40. DialFork: Going Beyond Factuality to Evaluate Procedural Hallucination in Conversational Agents --> Excluded --> Evaluates procedural hallucination (task-flow deviations); no memory system or memory evaluation dimension; E2 applies.**
+
+**41. Beyond Facts: Evaluating Intent Hallucination in LLMs (FaithQA) --> Excluded --> Evaluates intent hallucination (query element omission/misinterpretation); no memory system or memory management component; E2 applies.**
+
+**42. Hallucination Cascade: Analyzing Error Propagation in Multi-Agent LLM Systems --> Excluded --> Analyses hallucination propagation across sequential agent interactions; no memory system or dedicated memory management; E2 applies.**
+
+**44. Hallucination Detection in LLMs: Fast and Memory-Efficient Fine-Tuned Models --> Excluded --> "Memory-efficient" refers to GPU memory, not LLM memory systems; fine-tuned detection models without memory management architecture; E2 applies.**
+
+**68. RAG-DDR: Optimizing Retrieval-Augmented Generation Using Differentiable Data Rewards --> Excluded --> End-to-end RAG optimisation via differentiable rewards; no dedicated memory management subsystem; standard RAG with improved training signal; E2 applies.**
+
+**70. Scaling Test-Time Inference with Policy-Optimized Dynamic RAG via KV Caching and Decoding --> Excluded --> KV-caching is used as an inference optimisation implementation detail, not a dedicated memory management subsystem; primary focus is test-time scaling; E2 applies.**
+
+**71. Removal of Hallucination on Hallucination: Debate-Augmented RAG --> Excluded --> Multi-agent debate applied to RAG stages; no dedicated memory management subsystem; standard RAG with debate augmentation; E2 applies.**
+
+**74. Reducing Hallucination in Structured Outputs via Retrieval-Augmented Generation --> Excluded --> Standard RAG applied to structured workflow generation; no dedicated memory management component; E2 applies.**
+
+**75. ReEval: Automatic Hallucination Evaluation for RAG via Transferable Adversarial Attacks --> Excluded --> Adversarial evaluation framework for RAG; no memory management architecture; E2 applies.**
+
+**76. Can Knowledge Graphs Reduce Hallucinations in LLMs? A Survey --> Excluded --> Survey reviewing KG-based external augmentation; no primary quantitative evaluation baselines; E3 applies.**
+
+**77. Augmenting LLMs with Knowledge: A Survey on Hallucination Prevention --> Excluded --> Survey of external knowledge augmentation; no primary quantitative baselines; E3 applies.**
+
+**85. Knowledge-Centric Hallucination Detection (RefChecker) --> Excluded --> Converts outputs into claim-triplets for fact-checking against knowledge sources; detection method without a dedicated memory subsystem; E2 applies.**
+
+**86. Lookback Lens: Detecting and Mitigating Contextual Hallucinations Using Only Attention Maps --> Excluded --> Attention-weight-ratio-based detection; no memory management subsystem; E2 applies.**
+
+**87. SIRIN: A Unified Toolkit for Detecting Contextual Hallucinations in RAG and Memory-Grounded LLM Systems --> Excluded --> Detection toolkit operating over memory-grounded systems; SIRIN itself has no memory management architecture, only detection paradigms; E2 applies.**
+
+**88. Citation-Enhanced Generation for LLM-based Chatbots --> Excluded --> RAG + NLI post-hoc citation generation; no dedicated memory management subsystem; standard retrieval + verification; E2 applies.**
+
+**90. Zero-Resource Hallucination Prevention for LLMs (SELF-FAMILIARITY) --> Excluded --> Pre-detection via self-evaluation of concept familiarity; closest to a prompting/self-evaluation technique; no dedicated memory subsystem; E2 applies.**
+
+**91. Controlling Risk of Retrieval-Augmented Generation: A Counterfactual Prompting Framework --> Excluded --> Counterfactual prompting for RAG abstention; prompt engineering technique; E2 applies.**
+
+**93. Learning from Hallucinations: Mitigating Hallucinations via Internal Representation Intervention --> Excluded --> "In-model anti-expert" method via representation intervention; no memory system; "Reduces GPU memory from 2.2x to 1.2x" refers to efficiency, not memory architecture; E2 applies.**
+
+**98. Factuality of Large Language Models: A Survey --> Excluded --> General factuality survey; no primary quantitative contribution; memory not a primary research dimension; E3 applies.**
+
+**99. A Comprehensive Survey of Hallucination in Large Language, Image, Video and Audio Foundation Models --> Excluded --> Broad multimodal hallucination survey; no memory system focus; no primary quantitative baselines; E3 applies.**
+
+**100. Insights into Classifying and Mitigating LLMs' Hallucinations --> Excluded --> General hallucination classification and mitigation survey; no memory system focus; E2/E3 apply.**
+
+**101. Mitigating Hallucination: A Capability-Oriented Survey on RAG, Reasoning, and Agentic Systems --> Excluded --> RAG/reasoning/agentic capability survey; memory is not a primary research dimension; general mitigation coverage; E3 applies.**
+
+**102. Hallucinations in LLMs: A Lifecycle-Based Survey of Causes, Detection, Mitigation, and Prevention --> Excluded --> General lifecycle hallucination survey; no dedicated memory dimension; no primary quantitative baselines; E3 applies.**
+
+**108. Retrieval-Augmented Generation for Large Language Models: A Survey --> Excluded --> Survey of Naive/Advanced/Modular RAG paradigms; no primary quantitative contribution; no dedicated memory management focus; E3 applies.**
+
+**109. A Survey on Retrieval-Augmented Text Generation for Large Language Models --> Excluded --> General RAG survey across four retrieval categories; no primary quantitative contribution; E3 applies.**
+
+**113. Chain-of-Note: Enhancing Robustness in Retrieval-Augmented Language Models --> Excluded --> Sequential reading notes are a prompting strategy for processing retrieved documents; no dedicated memory management subsystem; E2 applies.**
+
+**115. A Survey on Large Language Model based Autonomous Agents --> Excluded --> Comprehensive general agent survey; memory is one component of a brain-perception-action framework, not the primary research object; E3 applies.**
+
+**118. Check Your Facts and Try Again: Improving LLMs with External Knowledge (LLM-Augmenter) --> Excluded --> Plug-and-play external knowledge grounding with iterative revision; standard retrieval + feedback loop without a dedicated memory management subsystem; E2 applies.**
+
+**120. From Local to Global: A Graph RAG Approach to Query-Focused Summarization (GraphRAG) --> Excluded --> Graph-based RAG for summarisation with precomputed community summaries; no dedicated agent memory management; E2 applies.**
+
+**125. Improving Factuality and Reasoning in Language Models through Multiagent Debate --> Excluded --> Multi-agent debate consensus mechanism; non-memory anti-hallucination technique; E2 applies.**
+
+**127. Siren's Song in the AI Ocean: A Survey on Hallucination in Large Language Models --> Excluded --> General hallucination survey (detection, explanation, mitigation); no memory system focus; no primary quantitative baselines; E3 applies.**
+
+**128. A Survey on Hallucination in LLMs: Principles, Taxonomy, Challenges, and Open Questions --> Excluded --> General hallucination taxonomy survey; no memory focus; no primary quantitative baselines; E3 applies.**
+
+---
+
+# SUMMARY STATISTICS
 
 | Category | Count |
-|----------|-------|
-| **Total Papers Screened** | 128 |
-| **Papers Included** | 84 |
-| **Papers Excluded** | 43 |
-| **Cannot Evaluate** | 1 |
-| **Inclusion Rate** | 65.6% |
+|---|---|
+| Total entries screened | 128 |
+| Confirmed duplicates (not re-evaluated) | 3 (papers 107=45, 121=73, 122=72) |
+| Unique papers evaluated | 125 |
+| **Included** | **71** |
+| **Excluded** | **54** |
+| Inclusion rate (of unique papers) | **56.8%** |
 
 ### By Research Question
 
-| Category | RQ1 | RQ2 | Total |
-|----------|-----|-----|-------|
-| **Papers Submitted** | 51 | 77 | 128 |
-| **Papers Included** | 30 | 54 | 84 |
-| **Papers Excluded** | 19 | 24 | 43 |
-| **Inclusion Rate** | 58.8% | 70.1% | 65.6% |
+| | RQ1 Benchmarks | RQ2 Methods | Total |
+|---|---|---|---|
+| Entries in source | 51 | 77 | 128 |
+| Included | 25 | 46 | 71 |
+| Excluded | 26 | 28 | 54 |
+| Inclusion rate | 49.0% | 62.2% | 56.8% |
 
-### Inclusion Breakdown by Category
+### Primary Exclusion Reasons
 
-**RQ1 Benchmarks & Datasets Included (30):**
-- Parametric Memory / Factuality: 2 (HalluLens, TruthfulQA)
-- Long-Term / Conversational Memory: 7 (LongMemEval, LoCoMo, MemBench, LOCCO, RealMem, HaluMem, What Matters in Memorizing)
-- RAG / Memory-Augmented: 6 (RAGTruth, Ragas, MIRAGE, CRAG, RAGEval, RECALL)
-- Knowledge Conflict & Robustness: 1 (Adaptive Chameleon)
-- Entity-Relationship & Verifiable: 1 (ERBench)
-- Domain-Specific & Multimodal: 3 (MMRC, SuperMemory-VQA, UHGEval)
-- Agent Memory & Knowledge Probing: 3 (Memory in LLMs, MemoryBank, Memory in LLMs Survey)
-- Intent-Based Hallucination: 3 (FaithQA, Hallucination Cascade, MCPHallu)
-- Specialized Memory: 3 (PRISM, ES-MemEval, Towards Root Memory)
+| Reason | Count |
+|---|---|
+| E2: Generic hallucination benchmark (no memory focus) | 18 |
+| E2: Standard RAG without memory management subsystem | 15 |
+| E2: Non-memory anti-hallucination technique | 8 |
+| E3: Survey without primary quantitative contribution | 10 |
+| Criterion 1: Outside 2023–2026 date range | 1 |
+| Criterion 2: Memory incidental / not primary research object | 2 |
 
-**RQ2 Methods & Architectures Included (54):**
-- Memory Architecture & Framework: 10 (MemGPT, MemBook, Synthius-Mem, Memory is Reconstructed, MaRS, BioMem, Oracle Agent Memory, Locomo-Plus, MemoryBench, MemoryRewardBench)
-- Parametric vs. Context Memory Conflict: 7 (WikiTrace, Parameters vs. Context, FIDES, Context-Faithfulness, Rowen, Context-Memory Conflicts, Context Leads)
-- Memory Unlearning & Editing: 2 (WISE, Distilling Feedback)
-- RAG Optimization & Enhancement: 4 (RAG-DDR, CogitoRAG, MemGraphRAG, TWIST)
-- Knowledge Graph & External Memory: 3 (LongMem, PGMR, Decoding Memories)
-- Post-Generation & Detection: 3 (Memory-Space Visual Retracing, SAFE, RefChecker)
-- Reflection & Memory Management: 2 (Reflective Memory Management, TRUSTMEM)
-- Survey & Taxonomy: 3 (Storage to Experience, Agent Memory Survey, Are We Ready)
-- Method Papers: 2 (EWE, BioMem)
-- RAG Paradigms & Surveys: 3 (Self-RAG, FLARE, CRAG, Chain-of-Note)
-- Agent Architecture & Memory: 5 (CoALA, Generative Agents, LSTM-MAS, TeleMem, MemGraphRAG)
-- Multiagent & Debate: 1 (Multiagent Debate)
-- Conflict Resolution: 1 (TCR)
-- Enhanced RAG Systems: 2 (TC-RAG, AssistRAG)
-- Agentic Systems: 1 (Agentic Systems Survey)
+### Corrections vs. First Pass (original SCREENING_RESULTS.md)
 
-### Key Themes Among Included Papers
+**Moved INCLUDED → EXCLUDED (14 papers):**
+TruthfulQA (year), Ragas, MIRAGE, CRAG Benchmark, RAGEval, WikiContradict, MMRC, FaithQA, Hallucination Cascade, Chain-of-Note, SELF-FAMILIARITY, RefChecker, RAG-DDR, Survey on Autonomous Agents
 
-1. **Memory Architecture & Design (31 papers):** Hierarchical, graph-based, cognitive, and brain-inspired memory systems
-2. **Long-Term & Agent Memory (28 papers):** Persistent memory across extended interactions and multi-agent systems
-3. **Memory Evaluation & Benchmarking (25 papers):** Comprehensive benchmarks for memory hallucinations, recall, and consolidation
-4. **Parametric vs. External Memory Conflict (12 papers):** Managing tensions between internal knowledge and retrieved/external memory
-5. **RAG Enhancement & Memory Management (15 papers):** Advanced retrieval strategies with explicit memory optimization
-6. **Memory Hallucination Detection (11 papers):** Fine-grained detection and mitigation of memory-related hallucinations
-7. **Reflection & Memory Consolidation (8 papers):** Reflective mechanisms for improving memory quality and preventing hallucination propagation
-8. **Survey & Framework Papers (7 papers):** Systematic taxonomies and comprehensive frameworks for memory evaluation
+**Moved EXCLUDED → INCLUDED (1 paper):**
+ConflictBank (explicitly studies context-memory and intra-memory conflicts)
+
+**Net change:** 84 → 71 included papers (−13)
 
 ---
 
-## Recommendations for Next Steps
-
-1. **Organize included papers by topic cluster** for systematic literature synthesis
-2. **Extract implementation details** from PDFs for architectural taxonomy development
-3. **Create comparison matrix** of memory subsystem features across papers
-4. **Identify open-source implementations** for reproducibility verification
-5. **Map inclusion/exclusion decisions** against original research questions for alignment
-
----
-
-**Screening Completed:** 2026-11-11  
-**Agent Evaluation Method:** Parallel multi-agent screening with full-text PDF verification where available  
-**Output Compiled By:** Claude Code (16 parallel agents)
+**Screening Completed:** 2026-11-11 (revised)  
+**Method:** Full re-read of all 128 abstracts; criteria applied paper-by-paper with consistent interpretation  
+**Key interpretive rule applied:** "Memory" must be a *primary research dimension*, not incidental (e.g. "memory recall as 1 of 6 abilities" does not qualify; "five core long-term memory abilities" does qualify). Standard RAG without an explicit memory-management lifecycle component does not qualify.
