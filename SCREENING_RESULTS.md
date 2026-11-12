@@ -143,6 +143,8 @@
 
 **94. TRUSTMEM: Learning Trustworthy Memory Consolidation for LLM Agents with Long-Term Memory --> Included --> arXiv 2026; RL-based memory consolidation policy explicitly reducing hallucinated memory entries; dedicated memory lifecycle management; quantitative utility and reliability metrics.**
 
+**[ParamMute]. ParamMute: Suppressing Knowledge-Critical FFNs for Faithful Retrieval-Augmented Generation --> Included --> NeurIPS 2025; identifies and suppresses unfaithfulness-associated FFN layers at inference to causally reduce parametric memory override in RAG; introduces CoFaithfulQA benchmark; +6.17 Context Recall on CoFaithfulQA, +54.63 on ConFiQA; open-source (OpenBMB/ParamMute).**
+
 **103. Explicit Working Memory Enhancement for Factuality (EWE) --> Included --> arXiv 2024; integrates a real-time working memory module refreshed via fact-checking and retrieval feedback; explicit working memory architecture; 2–6 point VeriScore improvement.**
 
 **104. Efficient and Effective Internal Memory Retrieval for LLM-based Healthcare Prediction (BioMem) --> Included --> arXiv 2026; focuses on internal parametric memory retrieval in clinical settings; dedicated memory retrieval mechanism; quantitative healthcare prediction evaluation.**
@@ -302,18 +304,18 @@
 | Total entries screened | 128 |
 | Confirmed duplicates (not re-evaluated) | 3 (papers 107=45, 121=73, 122=72) |
 | Unique papers evaluated | 125 |
-| **Included** | **66** |
+| **Included** | **67** |
 | **Excluded** | **59** |
-| Inclusion rate (of unique papers) | **52.8%** |
+| Inclusion rate (of unique papers) | **53.2%** |
 
 ### By Research Question
 
 | | RQ1 Benchmarks | RQ2 Methods | Total |
 |---|---|---|---|
-| Entries in source | 51 | 77 | 128 |
-| Included | 23 | 43 | 66 |
+| Entries in source | 51 | 78 | 129 |
+| Included | 23 | 44 | 67 |
 | Excluded | 28 | 31 | 59 |
-| Inclusion rate | 45.1% | 57.9% | 52.8% |
+| Inclusion rate | 45.1% | 56.4% | 53.2% |
 
 ### Primary Exclusion Reasons
 

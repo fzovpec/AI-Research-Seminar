@@ -2,7 +2,7 @@
 ## What memory-based architectures and methods reduce hallucination in LLMs, and how can they be taxonomized?
 
 **Date:** 2026-11-11  
-**Scope:** 42 included RQ2 papers, organized into 4 thematic categories  
+**Scope:** 43 included RQ2 papers, organized into 4 thematic categories  
 **Note:** Papers involving non-textual modalities (MemVR, TeleMem) are flagged below — consistent with RQ1 scope restriction.
 
 ---
@@ -25,6 +25,7 @@ This is the most fundamental intervention layer. Rather than adding external mem
 | **Hallucination-Guided Unlearning** | Uses hallucination traces to identify overfitted memories; sparse MLP edits | Removes the specific parametric entries that cause systematic hallucinations |
 | **Parameters vs. Context** | Fine-grained control over when model relies on parametric vs. context memory | Reduces hallucination under knowledge conflict by explicit reliance arbitration |
 | **Generation Constraint Scaling** | Scales memory readout vectors at inference to constrain generation | Training-free; steers output toward factual content already encoded in weights |
+| **ParamMute** | Identifies and suppresses knowledge-critical FFN layers that over-activate during unfaithful generation; training-free at inference | Causally reduces parametric override of retrieved context; +6.17 Context Recall on CoFaithfulQA, +54.63 on ConFiQA |
 | **Mechanistic Understanding of Non-Factual Hallucinations** | Identifies two distinct failure modes in parametric memory; restores internal fact-retrieval | Provides mechanistic diagnosis + targeted fix rather than blanket suppression |
 | **SAFE** | Sparse Autoencoder probes model internals; enriches queries via identified features | Surfaces latent parametric knowledge to reduce generation that conflicts with weights |
 | **Investigating Context-Faithfulness** | Quantifies "memory strength" via response divergence across evidence conditions | Diagnostic: maps which questions trigger parametric override of external evidence |
@@ -129,9 +130,9 @@ These papers address the lifecycle problem: memory that was accurate when writte
 
 | Category | # Papers | Core Strategy | Key Papers |
 |----------|----------|---------------|------------|
-| **1. Parametric Memory Control** | 10 | Modify/probe/govern internal model knowledge | WISE, Hallucination-Guided Unlearning, EWE |
+| **1. Parametric Memory Control** | 11 | Modify/probe/govern internal model knowledge | WISE, Hallucination-Guided Unlearning, ParamMute, EWE |
 | **2. Dedicated Memory Architecture** | 12 | Build explicit external memory systems | MemGPT, MemBook, Generative Agents |
 | **3. Retrieval & Access Management** | 14 | Control when/how external memory is queried | Self-RAG, FLARE, CRAG, CogitoRAG |
 | **4. Memory Maintenance & Quality** | 6 | Curate and correct memory over time | Reflective Memory Mgmt, TRUSTMEM, MemGuard |
 | **Flagged (non-textual)** | 2 | Pending scope decision | MemVR, TeleMem |
-| **Total (text-only)** | **42** | | |
+| **Total (text-only)** | **43** | | |

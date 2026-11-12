@@ -1,6 +1,6 @@
 # Paper-Level Mapping: RQ2 Methods → RQ1 Failure Modes
 
-**43 papers × 3 failure modes** · what each method claims to target, grounded in paper evidence
+**44 papers × 3 failure modes** · what each method claims to target, grounded in paper evidence
 
 **Legend:**
 - **✓** = main target — paper explicitly states this as primary contribution
@@ -22,6 +22,7 @@
 | Hallucination-Guided Unlearning | ✓ | | ◑ |
 | Parameters vs. Context | ◑ | | ✓ |
 | Generation Constraint Scaling | | | |
+| ParamMute | ✓ | | ✓ |
 | Mechanistic Understanding | ✓ | | |
 | SAFE | ✓ | | ◑ |
 | Investigating Context-Faithfulness | ◑ | | ✓ |
@@ -55,18 +56,18 @@
 
 | Paper | P | L | E |
 |-------|---|---|---|
-| Self-RAG | ◑ | | ✓ |
+| Self-RAG | | | ✓ |
 | FLARE | ◑ | | ✓ |
-| CRAG (Corrective RAG) | ◑ | | ✓ |
+| CRAG (Corrective RAG) | | | ✓ |
 | Rowen | ✓ | | ✓ |
 | FIDES | ◑ | | ✓ |
 | CogitoRAG | | | ✓ |
 | MemGraphRAG | | | ✓ |
-| TC-RAG | ◑ | | ✓ |
-| AssistRAG | ◑ | | ✓ |
+| TC-RAG | | | ✓ |
+| AssistRAG | | | ✓ |
 | PGMR | ✓ | | ◑ |
-| Adaptive Memory Optimization | ◑ | | ✓ |
-| KELDaR | ◑ | | ✓ |
+| Adaptive Memory Optimization | | | ✓ |
+| KELDaR | | | ✓ |
 | TCR (Seeing through the Conflict) | ◑ | | ✓ |
 | Studying Context-Memory Conflicts | ◑ | | ✓ |
 
@@ -105,6 +106,10 @@ Each paper's ratings are grounded in the following evidence drawn from the PDF (
 
 ### Generation Constraint Scaling
 - *(No main target in 3-category framework — paper targets hallucinations during read/write operations on an external episodic memory system in Larimar, which mapped to the removed Agent Operations category.)*
+
+### ParamMute
+- **P (main):** The paper's core contribution is identifying "knowledge-critical FFNs" — mid-to-deep FFN layers that over-activate during unfaithful generation — and suppressing them at inference time to causally reduce parametric memory override. FFN layers are explicitly framed as the substrate of parametric knowledge storage.
+- **E (main):** Directly targets the context-memory conflict failure mode (Sub-type A): RAG scenarios where accurate retrieved evidence contradicts the model's parametric knowledge and the model defaults to its weights. Introduces CoFaithfulQA, a benchmark of exactly this conflict, built from 6 open-domain QA datasets. Achieves +6.17 Context Recall on CoFaithfulQA and +54.63 on ConFiQA.
 
 ### Mechanistic Understanding
 - **P (main):** The paper explicitly targets hallucinations caused by failures in the LM's internal fact recall pipeline — specifically insufficient subject attribute knowledge in lower-layer MLPs and failure to select correct object attributes in upper-layer attention heads.
@@ -183,16 +188,14 @@ Each paper's ratings are grounded in the following evidence drawn from the PDF (
 ---
 
 ### Self-RAG
-- **P (partial):** LLMs "often produce responses containing factual inaccuracies due to their sole reliance on the parametric knowledge they encapsulate," positioning parametric knowledge failure as a motivating problem that RAG addresses secondarily.
-- **E (main):** Primary contribution is training an LM to adaptively retrieve, evaluate relevance of retrieved passages, and self-reflect on whether generated output is fully supported by retrieved documents.
+- **E (main):** Primary contribution is training an LM to adaptively retrieve, evaluate relevance of retrieved passages, and self-reflect on whether generated output is fully supported by retrieved documents. The paper pivots immediately from generic hallucination motivation to RAG design problems; every mechanism (retrieval tokens, critique tokens, segment-level beam search) operates on the retrieved-context layer with no engagement with parametric weights.
 
 ### FLARE
-- **P (partial):** LMs "have memorized some world knowledge during training" but "still tend to hallucinate and create imaginary content," motivating retrieval augmentation as a fix for parametric knowledge gaps.
+- **P (partial):** FLARE's retrieval trigger is architecturally grounded in the model's parametric uncertainty: low token probability is explicitly defined as evidence that the LM's parametric knowledge is insufficient for the upcoming span, citing calibration literature (Kadavath et al., 2022; Jiang et al., 2021). The when-to-retrieve decision is not arbitrary — it operationalizes parametric recall failure as the signal to fetch external evidence.
 - **E (main):** Directly targets hallucinations in retrieval-augmented generation by actively deciding when and what to retrieve, regenerating sentences that contain low-confidence tokens using externally retrieved documents.
 
 ### CRAG (Corrective RAG)
-- **P (partial):** "LLMs inevitably exhibit hallucinations since the accuracy of generated texts cannot be secured solely by the parametric knowledge they encapsulate."
-- **E (main):** Directly targets failures where retrieved/external documents are inaccurate or irrelevant, proposing a corrective retrieval evaluator to assess retrieved document quality and trigger appropriate knowledge retrieval actions.
+- **E (main):** Directly targets failures where retrieved/external documents are inaccurate or irrelevant. The paper explicitly states its scope: "this paper particularly studies the scenarios where the retriever returns inaccurate results." Every component — the retrieval evaluator, confidence-based Correct/Incorrect/Ambiguous triggers, web-search fallback, decompose-then-recompose algorithm — operates on retrieval quality, not on parametric weights. The parametric knowledge sentence in the abstract is standard RAG-motivation boilerplate shared by essentially all retrieval papers.
 
 ### Rowen
 - **P (main):** Explicitly targets "internal hallucination" caused by "the limited knowledge of LLMs" when relying on parametric knowledge, using consistency-based uncertainty detection to identify when the model's internal reasoning fails.
@@ -209,24 +212,20 @@ Each paper's ratings are grounded in the following evidence drawn from the PDF (
 - **E (main):** The entire paper targets failures where retrieved graph contexts are noisy, logically inconsistent, or thematically irrelevant — i.e., the model fails to faithfully use or is misled by retrieved external content.
 
 ### TC-RAG
-- **P (partial):** Cites "factual inaccuracies (i.e., hallucinations)" and "outdated knowledge" as motivating problems for medical LLMs.
-- **E (main):** A Turing-Complete memory stack that controls retrieval halting, removes erroneous/noisy retrieved content via Push/Pop stack operations, and mitigates the accumulation of "erroneous knowledge" introduced by external retrieval.
+- **E (main):** A Turing-Complete memory stack that controls retrieval halting, removes erroneous/noisy retrieved content via Push/Pop/Backtrack operations, and mitigates accumulation of "erroneous knowledge" introduced by external retrieval. "Outdated knowledge" appears only as motivation for using RAG in general; the word "parametric" appears only as a contrast term. Every mechanism operates on the retrieved-context layer — no component touches internal weights.
 
 ### AssistRAG
-- **P (partial):** Background motivation cites LLMs generating "factually incorrect information, known as hallucination."
-- **E (main):** Core contribution is an intelligent assistant that retrieves external knowledge, evaluates its usefulness, extracts relevant snippets, and decides whether to provide retrieved content to the main LLM.
+- **E (main):** Core contribution is an intelligent assistant that retrieves external knowledge, evaluates its usefulness, extracts relevant snippets, and decides whether to provide retrieved content to the main LLM. The hallucination sentence in the abstract is generic boilerplate; the paper's design rationale, problem formulation, and all experiments target retrieval quality and context integration — the "memory management" component refers to episodic interaction history, not parametric weights.
 
 ### PGMR
 - **P (main):** Directly targets hallucinations arising from LLMs relying on "opaque internal parametric knowledge" to recall KG URIs (e.g., Wikidata identifiers like Q937), causing incorrect or non-existent identifiers to be generated from parametric memory.
 - **E (partial):** PGMR is compared against RAG (pre-generation retrieval), noting that RAG still fails to eliminate hallucinations because the LLM is not strictly constrained to rely on retrieved context.
 
 ### Adaptive Memory Optimization
-- **P (partial):** Cites LLMs suffering from "hallucinations and factual inaccuracies due to their reliance on parametric memory" as motivation, but the primary solution is an external RAG system.
-- **E (main):** Core contribution directly targets faithfulness to retrieved content, proposing the Multi-granular Content Filter to reduce noise from retrieved documents and the Agent-based Memory Updater to synthesize retrieved information coherently.
+- **E (main):** Core contribution directly targets faithfulness to retrieved content, proposing the Multi-granular Content Filter to reduce noise from retrieved documents and the Agent-based Memory Updater to synthesize retrieved information coherently. The parametric memory sentence is standard RAG motivation boilerplate — no component of the system diagnoses, detects, or compensates for parametric weight failures; it is entirely an external retrieval/context-management architecture.
 
 ### KELDaR
-- **P (partial):** Addresses LLM hallucinations stemming from lacking external knowledge, motivating the KG-enhancement framework, but factual recall from parametric memory is not the primary target.
-- **E (main):** Core contribution retrieves KG subgraphs and grounds LLM reasoning in external structured knowledge to reduce hallucinations and improve faithfulness to retrieved facts during KGQA.
+- **E (main):** Core contribution retrieves KG subgraphs and grounds LLM reasoning in external structured knowledge to reduce hallucinations and improve faithfulness to retrieved facts during KGQA. Hallucinations are framed entirely as a gap-in-external-knowledge problem; parametric memory is treated as an invisible background assumption with no method component targeting or diagnosing it.
 
 ### TCR (Seeing through the Conflict)
 - **P (partial):** TCR addresses this by estimating "self-answerability to gauge confidence in internal memory," but this is secondary to its RAG conflict focus.
@@ -265,9 +264,9 @@ Each paper's ratings are grounded in the following evidence drawn from the PDF (
 
 | Failure Mode | Main Target (✓) | Partial (◑) | None |
 |---|---|---|---|
-| **P: Parametric Recall** | 9 | 16 | 18 |
-| **L: Long-term Memory** | 13 | 12 | 18 |
-| **E: External Integration** | 19 | 14 | 10 |
+| **P: Parametric Recall** | 10 | 10 | 24 |
+| **L: Long-term Memory** | 13 | 12 | 19 |
+| **E: External Integration** | 20 | 14 | 10 |
 
 **Key observations:**
 1. **External Integration is the most targeted failure mode** (19 main) — almost entirely by Category 3 (Retrieval & Access Management).
@@ -278,5 +277,5 @@ Each paper's ratings are grounded in the following evidence drawn from the PDF (
 
 ---
 
-*Generated: 2026-11-12 | All 43 papers read from PDF (or MASTER abstract where PDF unavailable)*
+*Generated: 2026-11-12, updated 2026-11-12 | All 44 papers read from PDF (or MASTER abstract where PDF unavailable)*
 *PDF fallbacks used for: WISE, EWE, Efficient Internal Memory Retrieval, The Memory Trap, MemGuard*
