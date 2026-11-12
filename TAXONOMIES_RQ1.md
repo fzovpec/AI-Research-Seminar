@@ -2,7 +2,7 @@
 ## How do existing benchmarks quantify hallucinations in LLM memory systems, and what specific memory failure modes do they evaluate?
 
 **Date:** 2026-11-12
-**Scope:** 23 included RQ1 benchmarks, organized into 3 thematic categories
+**Scope:** 21 included RQ1 benchmarks, organized into 3 thematic categories
 
 ---
 
@@ -97,7 +97,6 @@ This category covers three related sub-failures that all stem from the same stru
 | **1. Parametric Memory Recall** | 4 | Model fails to surface knowledge from training weights | HalluLens, PRISM |
 | **2. Long-Term Episodic Memory** | 11 | Memory degrades across sessions or extended contexts | LongMemEval, LoCoMo, Towards Root Memory |
 | **3. External Memory Integration** | 6 | Conflict arbitration, retrieval unfaithfulness, or agentic pipeline failures | ConflictBank, RAGTruth, HaluMem |
-| **Surveys / Taxonomies** | 2 | *(meta — define the memory type space)* | Memory in LLMs Survey, MemoryBank |
-| **Total** | **23** | | |
+| **Total** | **21** | | |
 
-> *Note: MemoryBank and Memory in LLMs Survey are included as foundational taxonomy papers that frame the conceptual space. MemoryRewardBench and TWIST evaluate memory management quality across extended contexts, placing them within the long-term episodic category. HaluMem and MCPHallu isolate failures within active memory pipelines, placing them in External Integration (Sub-type C) rather than as a standalone agentic category.*
+> *Note: MemoryRewardBench and TWIST evaluate memory management quality across extended contexts, placing them within the long-term episodic category. HaluMem and MCPHallu isolate failures within active memory pipelines, placing them in External Integration (Sub-type C) rather than as a standalone agentic category.*

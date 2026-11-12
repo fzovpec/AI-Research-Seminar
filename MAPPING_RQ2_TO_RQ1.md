@@ -1,6 +1,6 @@
 # Paper-Level Mapping: RQ2 Methods → RQ1 Failure Modes
 
-**46 papers × 3 failure modes** · what each method claims to target, grounded in paper evidence
+**43 papers × 3 failure modes** · what each method claims to target, grounded in paper evidence
 
 **Legend:**
 - **✓** = main target — paper explicitly states this as primary contribution
@@ -82,16 +82,6 @@
 | WikiTrace (Evidence-Linked Memory) | | | |
 | MemGuard | | ◑ | ◑ |
 | CoALA | | ◑ | ◑ |
-
----
-
-## Surveys & Taxonomies
-
-| Paper | P | L | E |
-|-------|---|---|---|
-| From Storage to Experience | | ◑ | ◑ |
-| A Survey of Agent Memory in the Second Half | ◑ | ✓ | ◑ |
-| Are We Ready For An Agent-Native Memory System? | | ◑ | |
 
 ---
 
@@ -271,36 +261,22 @@ Each paper's ratings are grounded in the following evidence drawn from the PDF (
 
 ---
 
-### From Storage to Experience
-- **L (partial):** Identifies "long-range consistency" as a core catalyst driving memory mechanism evolution, with benchmarks like LoCoMo and ImplexConv explicitly evaluating memory across up to 35 and 100 sessions respectively.
-- **E (partial):** Covers the "Storage" stage focused on faithful recording of trajectories and retrieval from external memory databases.
-
-### A Survey of Agent Memory in the Second Half
-- **P (partial):** The survey covers internal parametric memory as one of two main substrate categories, but factual recall failures are not a primary stated concern.
-- **L (main):** Explicitly targets long-horizon, multi-session agents where "LLM-based agents face context explosion beyond fixed context windows and must continuously accumulate, manage, and selectively reuse large volumes of information across extended interactions."
-- **E (partial):** External retrieval-augmented stores are a central taxonomy dimension, with the survey noting that "retrieval can be unreliable" and that external memory helps "reduce hallucinations or knowledge cutoff."
-
-### Are We Ready For An Agent-Native Memory System?
-- **L (partial):** Evaluates "long-horizon stability" and uses the LoCoMo benchmark to assess whether maintenance choices "preserve updated facts and coherent memory use over extended contexts."
-
----
-
 ## Coverage Summary
 
 | Failure Mode | Main Target (✓) | Partial (◑) | None |
 |---|---|---|---|
-| **P: Parametric Recall** | 9 | 17 | 20 |
-| **L: Long-term Memory** | 14 | 14 | 18 |
-| **E: External Integration** | 19 | 16 | 11 |
+| **P: Parametric Recall** | 9 | 16 | 18 |
+| **L: Long-term Memory** | 13 | 12 | 18 |
+| **E: External Integration** | 19 | 14 | 10 |
 
 **Key observations:**
 1. **External Integration is the most targeted failure mode** (19 main) — almost entirely by Category 3 (Retrieval & Access Management).
-2. **Long-term Memory** (14 main) is dominated by Category 2 (Dedicated Architecture); Category 3 almost completely ignores it — a structural gap.
+2. **Long-term Memory** (13 main) is dominated by Category 2 (Dedicated Architecture); Category 3 almost completely ignores it — a structural gap.
 3. **Parametric Recall is the least covered** (9 main) — only Category 1 papers explicitly address this, with near-zero coverage from Categories 2–4.
 4. **Category 4 (Maintenance) papers largely miss all three failure modes** — TRUSTMEM, WikiTrace, Distilling Feedback have no main target in this framework, revealing they were primarily addressing agentic memory operations, which is not a distinct RQ1 failure mode.
 5. **Generation Constraint Scaling** (Category 1) also has no main target — it too targeted external memory CRUD operations rather than parametric recall.
 
 ---
 
-*Generated: 2026-11-12 | All 46 papers read from PDF (or MASTER abstract where PDF unavailable)*
+*Generated: 2026-11-12 | All 43 papers read from PDF (or MASTER abstract where PDF unavailable)*
 *PDF fallbacks used for: WISE, EWE, Efficient Internal Memory Retrieval, The Memory Trap, MemGuard*

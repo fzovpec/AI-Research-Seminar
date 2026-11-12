@@ -2,7 +2,7 @@
 ## What memory-based architectures and methods reduce hallucination in LLMs, and how can they be taxonomized?
 
 **Date:** 2026-11-11  
-**Scope:** ~46 included RQ2 papers, organized into 4 thematic categories + surveys  
+**Scope:** 42 included RQ2 papers, organized into 4 thematic categories  
 **Note:** Papers involving non-textual modalities (MemVR, TeleMem) are flagged below — consistent with RQ1 scope restriction.
 
 ---
@@ -109,18 +109,6 @@ These papers address the lifecycle problem: memory that was accurate when writte
 
 ---
 
-## Surveys & Taxonomies
-
-These papers do not propose a single method but provide the conceptual frameworks within which the above methods can be positioned.
-
-| Paper | Contribution |
-|-------|-------------|
-| **From Storage to Experience: A Survey on the Evolution of LLM Agent Memory Mechanisms** | Evolutionary taxonomy: Storage → Reflection → Experience; design principles for each stage |
-| **A Survey of Agent Memory in the Second Half** | 50-author survey across parametric, in-context, external substrates; most comprehensive scope |
-| **Are We Ready For An Agent-Native Memory System?** | Empirical study of 12 architectures across 5 benchmarks; reveals hallucination-prone configurations |
-
----
-
 ## Cross-Cutting Observations
 
 **1. The intervention layer determines the tradeoff.** Parametric methods (Cat 1) are model-intrinsic and don't require runtime infrastructure but can't be updated without retraining. Architecture methods (Cat 2) are updatable but require external system management. The field hasn't converged on which layer should "own" anti-hallucination.
@@ -145,6 +133,5 @@ These papers do not propose a single method but provide the conceptual framework
 | **2. Dedicated Memory Architecture** | 12 | Build explicit external memory systems | MemGPT, MemBook, Generative Agents |
 | **3. Retrieval & Access Management** | 14 | Control when/how external memory is queried | Self-RAG, FLARE, CRAG, CogitoRAG |
 | **4. Memory Maintenance & Quality** | 6 | Curate and correct memory over time | Reflective Memory Mgmt, TRUSTMEM, MemGuard |
-| **Surveys / Frameworks** | 3 | Taxonomize the design space | From Storage to Experience |
 | **Flagged (non-textual)** | 2 | Pending scope decision | MemVR, TeleMem |
-| **Total (text-only)** | **45** | | |
+| **Total (text-only)** | **42** | | |

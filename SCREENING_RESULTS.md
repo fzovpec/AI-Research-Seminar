@@ -63,10 +63,6 @@
 
 **34. SuperMemory-VQA: An Egocentric Visual Question-Answering Benchmark for Long-Horizon Memory --> Excluded --> Non-textual modality (egocentric video); review scope restricted to text-based LLM memory systems.**
 
-**37. Memory in Large Language Models: Mechanisms, Evaluation and Evolution --> Included --> arXiv 2025; comprehensive survey with explicit memory taxonomy (parametric, contextual, external, procedural) plus an evaluation framework; qualifies as memory-system survey with systematic analysis.**
-
-**38. MemoryBank: Enhancing Large Language Models with Long-Term Memory --> Included --> AAAI 2024; proposes a long-term memory mechanism inspired by Ebbinghaus Forgetting Curve; evaluation metrics for memory faithfulness and factual consistency are reported quantitatively.**
-
 **43. MCPHallu: Benchmarking Reasoning, Execution, and Memory Hallucinations in MCP Agents --> Included --> arXiv 2026; explicitly includes a "memory" hallucination axis; 358 tasks across five domains; quantitative evaluation of 14 LLMs.**
 
 **45. PRISM: Probing Reasoning, Instruction, and Source Memory in LLM Hallucinations --> Included --> arXiv 2026; "source memory" is an explicit fourth diagnostic dimension; 9,448 instances; quantitative disentanglement of hallucination sources including memory.**
@@ -146,12 +142,6 @@
 **92. In Prospect and Retrospect: Reflective Memory Management for Long-term Personalized Dialogue Agents --> Included --> ACL 2025; combines prospective and retrospective reflection explicitly for memory management; dedicated memory management system; >10% improvement on LongMemEval.**
 
 **94. TRUSTMEM: Learning Trustworthy Memory Consolidation for LLM Agents with Long-Term Memory --> Included --> arXiv 2026; RL-based memory consolidation policy explicitly reducing hallucinated memory entries; dedicated memory lifecycle management; quantitative utility and reliability metrics.**
-
-**95. From Storage to Experience: A Survey on the Evolution of LLM Agent Memory Mechanisms --> Included --> ACL 2026 (Findings); systematic survey with evolutionary taxonomy (Storage → Reflection → Experience) explicitly for LLM agent memory; establishes memory design principles; qualifies as memory-explicit survey.**
-
-**96. A Survey of Agent Memory in the Second Half: Towards Self-Evolving and Long-Horizon Agents --> Included --> arXiv 2026; 50-author survey explicitly and entirely focused on agent memory across parametric, in-context, and external substrates; systematic analysis qualifies as memory-explicit survey.**
-
-**97. Are We Ready For An Agent-Native Memory System? --> Included --> arXiv 2026; systematic empirical study of 12 agent memory architectures across five benchmarks; decomposes memory into representation, storage, extraction, update modules; quantitative hallucination-prone configuration analysis.**
 
 **103. Explicit Working Memory Enhancement for Factuality (EWE) --> Included --> arXiv 2024; integrates a real-time working memory module refreshed via fact-checking and retrieval feedback; explicit working memory architecture; 2–6 point VeriScore improvement.**
 
@@ -293,6 +283,16 @@
 
 **128. A Survey on Hallucination in LLMs: Principles, Taxonomy, Challenges, and Open Questions --> Excluded --> General hallucination taxonomy survey; no memory focus; no primary quantitative baselines; E3 applies.**
 
+**37. Memory in Large Language Models: Mechanisms, Evaluation and Evolution --> Excluded --> Survey paper without primary quantitative contribution; establishes memory taxonomy but does not propose or evaluate a novel benchmark or method; E3 applies.**
+
+**38. MemoryBank: Enhancing Large Language Models with Long-Term Memory --> Excluded --> Survey/framework paper; proposes an architecture concept and evaluation criteria but serves primarily as a taxonomy reference rather than a primary empirical benchmark; E3 applies.**
+
+**95. From Storage to Experience: A Survey on the Evolution of LLM Agent Memory Mechanisms --> Excluded --> Survey paper; evolutionary taxonomy without primary quantitative evaluation baselines of its own; E3 applies.**
+
+**96. A Survey of Agent Memory in the Second Half: Towards Self-Evolving and Long-Horizon Agents --> Excluded --> 50-author survey; systematic analysis without primary quantitative contribution; E3 applies.**
+
+**97. Are We Ready For An Agent-Native Memory System? --> Excluded --> Empirical evaluation study of existing architectures; does not propose a novel method or benchmark; E3 applies.**
+
 ---
 
 # SUMMARY STATISTICS
@@ -302,18 +302,18 @@
 | Total entries screened | 128 |
 | Confirmed duplicates (not re-evaluated) | 3 (papers 107=45, 121=73, 122=72) |
 | Unique papers evaluated | 125 |
-| **Included** | **71** |
-| **Excluded** | **54** |
-| Inclusion rate (of unique papers) | **56.8%** |
+| **Included** | **66** |
+| **Excluded** | **59** |
+| Inclusion rate (of unique papers) | **52.8%** |
 
 ### By Research Question
 
 | | RQ1 Benchmarks | RQ2 Methods | Total |
 |---|---|---|---|
 | Entries in source | 51 | 77 | 128 |
-| Included | 25 | 46 | 71 |
-| Excluded | 26 | 28 | 54 |
-| Inclusion rate | 49.0% | 62.2% | 56.8% |
+| Included | 23 | 43 | 66 |
+| Excluded | 28 | 31 | 59 |
+| Inclusion rate | 45.1% | 57.9% | 52.8% |
 
 ### Primary Exclusion Reasons
 
@@ -322,7 +322,7 @@
 | E2: Generic hallucination benchmark (no memory focus) | 18 |
 | E2: Standard RAG without memory management subsystem | 15 |
 | E2: Non-memory anti-hallucination technique | 8 |
-| E3: Survey without primary quantitative contribution | 10 |
+| E3: Survey without primary quantitative contribution | 15 |
 | Criterion 1: Outside 2023–2026 date range | 1 |
 | Criterion 2: Memory incidental / not primary research object | 2 |
 
